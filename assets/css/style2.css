@@ -1,0 +1,1181 @@
+/* =====================================================================
+   THANH ÂM — STYLE2 (riêng cho trang "Về Thanh Âm" / vethanham.php)
+   Dùng chung bộ token màu/font với style.css để đồng bộ giao diện,
+   nhưng chỉ chứa các class thật sự dùng ở trang này.
+   ===================================================================== */
+
+:root {
+  --color-navy: #0b2a4a;
+  --color-primary: #0f4c81;
+  --color-primary-light: #e7f0fa;
+  --color-accent: #e2386b;
+  --color-menu-bg: #fbe3ec;
+  --color-gold: #f5a623;
+  --color-green: #1c8c5b;
+  --color-cream: #fff9f3;
+  --color-ink: #1a1a2e;
+  --color-muted: #6b7280;
+  --color-white: #ffffff;
+  --color-border: #eee2da;
+
+  --font-display: "Baloo 2", system-ui, sans-serif;
+  --font-body: "Be Vietnam Pro", system-ui, sans-serif;
+
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 10px 30px rgba(11, 42, 74, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Nút bấm ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-white);
+  box-shadow: 0 6px 18px rgba(226, 56, 107, 0.35);
+}
+.btn-line {
+  background: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+/* ---------- Header (topbar, brandbar, mainnav) ---------- */
+.topbar {
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-size: 0.82rem;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+.topbar-links a {
+  opacity: 0.85;
+  margin-right: 18px;
+}
+.topbar-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.topbar-icons a {
+  margin-left: 14px;
+  opacity: 0.9;
+}
+
+.brandbar {
+  background: linear-gradient(90deg, #eaf2fb 0%, #f6e9ef 100%);
+  border-bottom: 1px solid rgba(11, 42, 74, 0.08);
+}
+.brandbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-soft);
+}
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-navy);
+}
+.brand-slogan {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  max-width: 420px;
+}
+.brandbar-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.brandbar-actions .btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(226, 56, 107, 0.25);
+}
+.brandbar-actions .btn-line {
+  background: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.mainnav {
+  background: var(--color-menu-bg);
+}
+.mainnav .container {
+  display: flex;
+  overflow-x: auto;
+}
+.mainnav a {
+  padding: 13px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-navy);
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.mainnav a:hover,
+.mainnav a.active {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ---------- Header phụ của trang con (breadcrumb) ---------- */
+.page-header {
+  background: var(--color-primary-light);
+  padding: 34px 0 26px;
+}
+.page-header .breadcrumb {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+.page-header .breadcrumb a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.page-header h1 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--color-navy);
+}
+.page-header p {
+  margin-top: 8px;
+  color: var(--color-muted);
+  max-width: 640px;
+}
+
+/* ---------- Thanh tab ---------- */
+.tabs-wrap {
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.tabs-nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 4px;
+}
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab-btn:hover {
+  color: var(--color-primary);
+}
+.tab-btn.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.tab-panel {
+  display: none;
+  padding: 30px 0 60px;
+}
+.tab-panel.active {
+  display: block;
+}
+
+/* ---------- Tổng quan: accordion info-card ---------- */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.info-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  align-self: start;
+}
+.info-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  cursor: pointer;
+}
+.info-card-head .ico {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.info-card-head h3 {
+  font-size: 1rem;
+  color: var(--color-navy);
+}
+.info-card-head p {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: 2px;
+}
+.info-card-head .chevron {
+  margin-left: auto;
+  color: var(--color-muted);
+  transition: transform 0.2s ease;
+}
+.info-card.expanded .info-card-head .chevron {
+  transform: rotate(180deg);
+}
+
+.card-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.info-card.expanded .card-detail {
+  max-height: 2000px;
+}
+.card-detail-inner {
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+.card-detail-inner dl {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  row-gap: 8px;
+  column-gap: 10px;
+  margin-bottom: 14px;
+}
+.card-detail-inner dt {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+.card-detail-inner dd {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.card-detail-inner dd a {
+  color: var(--color-primary);
+}
+.card-detail-inner h4 {
+  font-size: 0.92rem;
+  color: var(--color-navy);
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+.card-detail-inner p {
+  font-size: 0.87rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.org-chart-placeholder {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+.org-chart-placeholder i {
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+/* ---------- Người (sáng lập / cố vấn) ---------- */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+}
+.person-card {
+  text-align: center;
+  padding: 14px 8px;
+  border-radius: var(--radius-md);
+  background: var(--color-cream);
+}
+.person-avatar {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.person-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.person-card h4 {
+  font-size: 0.88rem;
+  color: var(--color-ink);
+}
+.person-card span {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* ---------- Giải thưởng ---------- */
+.award-grid {
+  display: grid;
+  gap: 14px;
+}
+.award-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-cream);
+}
+.award-media {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-gold);
+  color: #402700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.award-body .badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: var(--color-menu-bg);
+  padding: 2px 9px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+.award-body h4 {
+  font-size: 0.92rem;
+  color: var(--color-ink);
+}
+.award-body p {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* ---------- Lịch sử xây dựng & phát triển ---------- */
+.founding-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+.dev-timeline {
+  border-left: 3px solid var(--color-primary-light);
+  margin-left: 6px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.dev-step {
+  position: relative;
+}
+.dev-step::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+.dev-period {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+.dev-step h4 {
+  font-size: 0.98rem;
+  color: var(--color-ink);
+}
+.dev-step p {
+  font-size: 0.87rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+  max-width: 640px;
+}
+
+/* ---------- Cách thức hoạt động ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.principle-list,
+.duty-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.principle-item,
+.duty-item {
+  display: flex;
+  gap: 14px;
+}
+.principle-item .num,
+.duty-item .num {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.duty-item .num {
+  background: var(--color-accent);
+}
+.principle-item h4,
+.duty-item h4 {
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+.principle-item p,
+.duty-item p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 3px;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  background: var(--color-navy);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 50px 0 20px;
+  margin-top: 50px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.footer-brand .brand-name {
+  color: #fff;
+}
+.footer-slogan {
+  font-size: 0.88rem;
+  opacity: 0.8;
+  margin-top: 8px;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 0.95rem;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.footer-col li {
+  margin-bottom: 9px;
+  font-size: 0.88rem;
+}
+.footer-col a:hover {
+  color: var(--color-gold);
+}
+.footer-qr .qr-box {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-qr .qr-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  padding: 8px;
+}
+.footer-qr .qr-fallback i {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+.footer-qr .qr-caption {
+  font-size: 0.76rem;
+  opacity: 0.75;
+  margin-top: 10px;
+  max-width: 200px;
+}
+.footer-bottom {
+  padding-top: 18px;
+  font-size: 0.8rem;
+  opacity: 0.65;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .brandbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .topbar-links {
+    display: none;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+
+/* ---------- Fade-in-up khi phần tử xuất hiện ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-card,
+.award-card,
+.person-card,
+.dev-step,
+.principle-item,
+.duty-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Stagger nhẹ cho card trong lưới, tạo cảm giác lần lượt xuất hiện */
+.overview-grid .info-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.overview-grid .info-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.overview-grid .info-card:nth-child(3) {
+  animation-delay: 0.25s;
+}
+.overview-grid .info-card:nth-child(4) {
+  animation-delay: 0.35s;
+}
+.overview-grid .info-card:nth-child(5) {
+  animation-delay: 0.45s;
+}
+
+.people-grid .person-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.people-grid .person-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.people-grid .person-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.people-grid .person-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.people-grid .person-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.people-grid .person-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.award-grid .award-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.award-grid .award-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.award-grid .award-card:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.dev-timeline .dev-step:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dev-timeline .dev-step:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dev-timeline .dev-step:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+/* ---------- Hover mượt hơn cho info-card & person-card ---------- */
+.info-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(11, 42, 74, 0.16);
+}
+
+.person-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+.person-card:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(11, 42, 74, 0.1);
+}
+
+.person-avatar {
+  transition: transform 0.3s ease;
+}
+.person-card:hover .person-avatar {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+/* ---------- Award card hover ---------- */
+.award-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.award-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 20px rgba(11, 42, 74, 0.1);
+}
+.award-media {
+  transition: transform 0.3s ease;
+}
+.award-card:hover .award-media {
+  transform: rotate(10deg) scale(1.08);
+}
+
+/* ---------- Chevron xoay mượt hơn (easing đẹp hơn linear) ---------- */
+.info-card-head .chevron {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Card-detail mở ra mượt hơn ---------- */
+.card-detail {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Tab chuyển mượt (fade thay vì bật/tắt cứng) ---------- */
+.tab-panel {
+  display: none;
+  opacity: 0;
+}
+.tab-panel.active {
+  display: block;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* ---------- Tab-btn: gạch chân trượt mượt hơn ---------- */
+.tab-btn {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+.tab-btn.active {
+  border-bottom-color: transparent; /* để ::after đảm nhiệm gạch chân */
+}
+
+/* ---------- Founding-date: nhịp nhẹ để thu hút mắt ---------- */
+@keyframes pulseSoft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(15, 76, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(15, 76, 129, 0);
+  }
+}
+.founding-date {
+  animation: pulseSoft 2.4s ease-in-out infinite;
+}
+
+/* ---------- Timeline dot: nảy nhẹ khi vào tầm nhìn ---------- */
+@keyframes dotPop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.dev-step::before {
+  animation: dotPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: inherit;
+}
+
+/* ---------- Tôn trọng người dùng tắt animation hệ thống ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .info-card,
+  .award-card,
+  .person-card,
+  .dev-step,
+  .principle-item,
+  .duty-item,
+  .tab-panel.active,
+  .founding-date {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+
+/* ---------- Fade-in-up khi phần tử xuất hiện ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-card,
+.award-card,
+.person-card,
+.dev-step,
+.principle-item,
+.duty-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Stagger nhẹ cho card trong lưới, tạo cảm giác lần lượt xuất hiện */
+.overview-grid .info-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.overview-grid .info-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.overview-grid .info-card:nth-child(3) {
+  animation-delay: 0.25s;
+}
+.overview-grid .info-card:nth-child(4) {
+  animation-delay: 0.35s;
+}
+.overview-grid .info-card:nth-child(5) {
+  animation-delay: 0.45s;
+}
+
+.people-grid .person-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.people-grid .person-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.people-grid .person-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.people-grid .person-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.people-grid .person-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.people-grid .person-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.award-grid .award-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.award-grid .award-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.award-grid .award-card:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.dev-timeline .dev-step:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dev-timeline .dev-step:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dev-timeline .dev-step:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+/* ---------- Hover mượt hơn cho info-card & person-card ---------- */
+.info-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(11, 42, 74, 0.16);
+}
+
+.person-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+.person-card:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(11, 42, 74, 0.1);
+}
+
+.person-avatar {
+  transition: transform 0.3s ease;
+}
+.person-card:hover .person-avatar {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+/* ---------- Award card hover ---------- */
+.award-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.award-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 20px rgba(11, 42, 74, 0.1);
+}
+.award-media {
+  transition: transform 0.3s ease;
+}
+.award-card:hover .award-media {
+  transform: rotate(10deg) scale(1.08);
+}
+
+/* ---------- Chevron xoay mượt hơn (easing đẹp hơn linear) ---------- */
+.info-card-head .chevron {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Card-detail mở ra mượt hơn ---------- */
+.card-detail {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Tab chuyển mượt (fade thay vì bật/tắt cứng) ---------- */
+.tab-panel {
+  display: none;
+  opacity: 0;
+}
+.tab-panel.active {
+  display: block;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* ---------- Tab-btn: gạch chân trượt mượt hơn ---------- */
+.tab-btn {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+.tab-btn.active {
+  border-bottom-color: transparent; /* để ::after đảm nhiệm gạch chân */
+}
+
+/* ---------- Founding-date: nhịp nhẹ để thu hút mắt ---------- */
+@keyframes pulseSoft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(15, 76, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(15, 76, 129, 0);
+  }
+}
+.founding-date {
+  animation: pulseSoft 2.4s ease-in-out infinite;
+}
+
+/* ---------- Timeline dot: nảy nhẹ khi vào tầm nhìn ---------- */
+@keyframes dotPop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.dev-step::before {
+  animation: dotPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: inherit;
+}
+
+/* ---------- Tôn trọng người dùng tắt animation hệ thống ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .info-card,
+  .award-card,
+  .person-card,
+  .dev-step,
+  .principle-item,
+  .duty-item,
+  .tab-panel.active,
+  .founding-date {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+/* =====================================================================
+   ANIMATION CHO ICON LOGO (.ico trong info-card-head)
+   ===================================================================== */
+
+.info-card-head .ico {
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Hover vào cả card thì icon nảy nhẹ + đổi màu nền đậm hơn */
+.info-card:hover .info-card-head .ico {
+  transform: scale(1.12) rotate(-8deg);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Khi card đang mở rộng (expanded), icon xoay nhẹ liên tục kiểu "thở" */
+@keyframes iconBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+.info-card.expanded .info-card-head .ico {
+  background: var(--color-accent);
+  color: #fff;
+  animation: iconBreathe 2s ease-in-out infinite;
+}
+
+/* Icon xuất hiện với hiệu ứng pop-in khi trang load (đi kèm fadeInUp của card cha) */
+@keyframes iconPopIn {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+.info-card-head .ico {
+  animation: iconPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+/* Đồng bộ độ trễ với card cha để icon "nảy ra" đúng lúc card xuất hiện */
+.overview-grid .info-card:nth-child(1) .ico {
+  animation-delay: 0.2s;
+}
+.overview-grid .info-card:nth-child(2) .ico {
+  animation-delay: 0.3s;
+}
+.overview-grid .info-card:nth-child(3) .ico {
+  animation-delay: 0.4s;
+}
+.overview-grid .info-card:nth-child(4) .ico {
+  animation-delay: 0.5s;
+}
+.overview-grid .info-card:nth-child(5) .ico {
+  animation-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-card-head .ico,
+  .info-card.expanded .info-card-head .ico {
+    animation: none !important;
+  }
+}

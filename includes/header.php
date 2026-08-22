@@ -32,7 +32,7 @@
 
         <nav class="main-menu">
 
-            <a href="/ThanhAM/index.php" class="menu-link">
+            <a href="/ThanhAM/pages/trangchu.php" class="menu-link">
                 Trang chủ
             </a>
 
@@ -44,15 +44,15 @@
                 Trải nghiệm Thanh Âm
             </a>
 
-            <a href="/ThanhAM/pages/ve_thanh_am.php" class="menu-link">
+            <a href="/ThanhAM/pages/vethanham.php" class="menu-link">
                 Về Thanh Âm
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/giaiphap.php" class="menu-link">
                 Giải pháp
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/cauchuyen.php" class="menu-link">
                 Câu chuyện
             </a>
 
