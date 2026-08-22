@@ -10,6 +10,7 @@
     <title>Thanh Âm - Hệ thống AI hỗ trợ giao tiếp</title>
 
     <link rel="stylesheet" href="/ThanhAM/assets/css/style.css">
+    <link rel="stylesheet" href="/ThanhAM/assets/css/media.css">
 
 </head>
 
@@ -60,7 +61,7 @@
                 Thư viện hồ sơ
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/media.php" class="menu-link">
                 MEDIA
             </a>
 

@@ -1,0 +1,317 @@
+/* =========================================
+   TRANG MEDIA (GIAO DIỆN PHẦN GIỮA)
+========================================= */
+
+.media-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 35px 25px 60px;
+}
+
+/* Banner Đầu Trang Media */
+.media-hero {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 35px 20px;
+  text-align: center;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.media-hero h1 {
+  font-size: 28px;
+  color: #034f8f;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.media-hero p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Thanh Tab Điều Hướng */
+.media-tabs-wrapper {
+  margin-bottom: 30px;
+}
+
+.media-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.tab-btn {
+  flex: 1;
+  max-width: 280px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  background: #e2e8f0;
+  color: #075da1;
+}
+
+.tab-btn.active {
+  background: linear-gradient(90deg, #034f8f 0%, #075da1 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(7, 93, 161, 0.3);
+}
+
+/* Nội dung Tab */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- TAB 1: VIDEO GRID --- */
+.video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.video-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 25px;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 22px;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.video-card.reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.video-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-info h3 {
+  font-size: 20px;
+  color: #07538f;
+  margin-bottom: 12px;
+}
+
+.video-info h4 {
+  font-size: 16px;
+  color: #d71920;
+  margin-bottom: 10px;
+}
+
+.video-info p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Tỉ lệ 16:9 */
+  height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-embed iframe,
+.video-embed video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+/* --- TAB 2: AWARDS GRID --- */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.award-card {
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.award-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 14px;
+  background: #d71920;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.award-badge.community {
+  background: #075da1;
+}
+
+.award-badge.third {
+  background: #8c315e;
+}
+
+.award-card h3 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.award-org {
+  font-size: 14px;
+  font-weight: 700;
+  color: #07538f;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.award-card p {
+  font-size: 14.5px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- TAB 3: TRUYỀN THÔNG --- */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.news-card {
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.news-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.news-source {
+  background: #d71920;
+  color: white;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.news-source.dt {
+  background: #034f8f;
+}
+
+.news-header h3 {
+  font-size: 18px;
+  color: #222;
+}
+
+.news-desc {
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.55;
+}
+
+.qr-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.qr-box img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.qr-box span {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* =========================================
+   RESPONSIVE (MOBILE & TABLET)
+========================================= */
+
+@media (max-width: 900px) {
+  .media-tabs {
+    flex-direction: column;
+  }
+  .tab-btn {
+    max-width: 100%;
+  }
+  .video-card,
+  .video-card.reverse {
+    grid-template-columns: 1fr;
+  }
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
