@@ -68,226 +68,240 @@ require __DIR__ . '/../includes/header.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <section class="page-header">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/ThanhAM/pages/trangchu.php">Trang chủ</a> / Về Thanh Âm
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/ThanhAM/index.php">Trang chủ</a> / Về Thanh Âm
+        </div>
+        <h1>Về Thanh Âm</h1>
+        <p>Câu chuyện, con người và cách vận hành của dự án AI hỗ trợ giao tiếp cho người yếu thế tại Tiền Giang.</p>
     </div>
-    <h1>Về Thanh Âm</h1>
-    <p>Câu chuyện, con người và cách vận hành của dự án AI hỗ trợ giao tiếp cho người yếu thế tại Tiền Giang.</p>
-  </div>
 </section>
 
 <div class="tabs-wrap">
-  <div class="container">
-    <nav class="tabs-nav">
-      <button type="button" class="tab-btn <?= tabClass('tongquan', $active_tab); ?>" data-tab-btn="tongquan">
-        <i class="fa-solid fa-table-cells-large"></i> Tổng quan
-      </button>
-      <button type="button" class="tab-btn <?= tabClass('lichsu', $active_tab); ?>" data-tab-btn="lichsu">
-        <i class="fa-solid fa-timeline"></i> Lịch sử xây dựng và phát triển
-      </button>
-      <button type="button" class="tab-btn <?= tabClass('hoatdong', $active_tab); ?>" data-tab-btn="hoatdong">
-        <i class="fa-solid fa-gears"></i> Cách thức hoạt động
-      </button>
-    </nav>
-  </div>
+    <div class="container">
+        <nav class="tabs-nav">
+            <button type="button" class="tab-btn <?= tabClass('tongquan', $active_tab); ?>" data-tab-btn="tongquan">
+                <i class="fa-solid fa-table-cells-large"></i> Tổng quan
+            </button>
+            <button type="button" class="tab-btn <?= tabClass('lichsu', $active_tab); ?>" data-tab-btn="lichsu">
+                <i class="fa-solid fa-timeline"></i> Lịch sử xây dựng và phát triển
+            </button>
+            <button type="button" class="tab-btn <?= tabClass('hoatdong', $active_tab); ?>" data-tab-btn="hoatdong">
+                <i class="fa-solid fa-gears"></i> Cách thức hoạt động
+            </button>
+        </nav>
+    </div>
 </div>
 
 <div class="container">
 
-  <div class="tab-panel <?= tabClass('tongquan', $active_tab); ?>" data-tab-panel="tongquan">
-    <div class="overview-grid">
+    <div class="tab-panel <?= tabClass('tongquan', $active_tab); ?>" data-tab-panel="tongquan">
+        <div class="overview-grid">
 
-      <div class="info-card">
-        <div class="info-card-head">
-          <div class="ico"><i class="fa-solid fa-circle-info"></i></div>
-          <div>
-            <h3>Thông tin chung</h3>
-            <p>Liên hệ, sứ mệnh, tầm nhìn</p>
-          </div>
-          <i class="fa-solid fa-chevron-down chevron"></i>
-        </div>
-        <div class="card-detail">
-          <div class="card-detail-inner">
-            <dl>
-              <dt>Tên dự án</dt><dd>Thanh Âm</dd>
-              <dt>Địa chỉ</dt><dd>Mỹ Tho, Tiền Giang</dd>
-              <dt>Hotline</dt><dd><a href="tel:0865357517">0865357517</a></dd>
-              <dt>Zalo</dt><dd><a href="https://zalo.me/0912991489" target="_blank" rel="noopener">zalo.me/0912991489</a></dd>
-              <dt>Website</dt><dd><a href="#" target="_blank" rel="noopener">thanham.vn</a></dd>
-              <dt>Fanpage</dt><dd><a href="#" target="_blank" rel="noopener">facebook.com/thanham</a></dd>
-            </dl>
-            <h4>Sứ mệnh</h4>
-            <p>Trao công cụ giao tiếp bằng AI cho trẻ em và người khuyết tật, để mọi tiếng nói đều được lắng nghe.</p>
-            <h4>Tầm nhìn</h4>
-            <p>Trở thành nền tảng hỗ trợ giao tiếp AI phổ biến nhất cho người yếu thế tại Việt Nam vào năm 2030.</p>
-            <h4>Giá trị cốt lõi</h4>
-            <p>Thấu cảm — Minh bạch — Bền vững — Cùng nhau hành động.</p>
-            <h4>Chính sách chất lượng</h4>
-            <p>Mọi thiết bị và phần mềm trước khi bàn giao đều được kiểm thử với chính người dùng thực tế.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-card-head">
-          <div class="ico"><i class="fa-solid fa-sitemap"></i></div>
-          <div>
-            <h3>Hệ thống tổ chức</h3>
-            <p>Sơ đồ nhân sự &amp; phân quyền</p>
-          </div>
-          <i class="fa-solid fa-chevron-down chevron"></i>
-        </div>
-        <div class="card-detail">
-          <div class="card-detail-inner">
-            <div class="org-chart-placeholder">
-              <img src="/ThanhAM/assets/images/so-do-to-chuc.png"
-                   alt="Sơ đồ tổ chức Thanh Âm"
-                   style="max-width:100%; border-radius:8px;"
-                   onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{innerHTML:'<i class=&quot;fa-solid fa-sitemap&quot;></i><br>Chưa có hình sơ đồ tổ chức.<br><small>Đặt ảnh tại assets/images/so-do-to-chuc.png</small>'}));">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-card-head">
-          <div class="ico"><i class="fa-solid fa-people-group"></i></div>
-          <div>
-            <h3>Nhà sáng lập</h3>
-            <p>6 thành viên sáng lập</p>
-          </div>
-          <i class="fa-solid fa-chevron-down chevron"></i>
-        </div>
-        <div class="card-detail">
-          <div class="card-detail-inner">
-            <div class="people-grid">
-              <?php foreach ($founders as $f): ?>
-                <div class="person-card">
-                  <div class="person-avatar">
-                    <?php if (!empty($f['image'])): ?>
-                      <img src="<?= htmlspecialchars($f['image']); ?>" alt="<?= htmlspecialchars($f['name']); ?>">
-                    <?php else: ?>
-                      <?= htmlspecialchars(mb_substr($f['name'], 0, 1)); ?>
-                    <?php endif; ?>
-                  </div>
-                  <h4><?= htmlspecialchars($f['name']); ?></h4>
-                  <span><?= htmlspecialchars($f['role']); ?></span>
+            <div class="info-card">
+                <div class="info-card-head">
+                    <div class="ico"><i class="fa-solid fa-circle-info"></i></div>
+                    <div>
+                        <h3>Thông tin chung</h3>
+                        <p>Liên hệ, sứ mệnh, tầm nhìn</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down chevron"></i>
                 </div>
-              <?php endforeach; ?>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-card-head">
-          <div class="ico"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <div>
-            <h3>Ban cố vấn</h3>
-            <p>4 thầy cô đồng hành</p>
-          </div>
-          <i class="fa-solid fa-chevron-down chevron"></i>
-        </div>
-        <div class="card-detail">
-          <div class="card-detail-inner">
-            <div class="people-grid">
-              <?php foreach ($advisors as $a): ?>
-                <div class="person-card">
-                  <div class="person-avatar">
-                    <img src="<?= htmlspecialchars($a['image']); ?>" alt="<?= htmlspecialchars($a['name']); ?>">
-                  </div>
-                  <h4><?= htmlspecialchars($a['name']); ?></h4>
-                  <span><?= htmlspecialchars($a['role']); ?></span>
+                <div class="card-detail">
+                    <div class="card-detail-inner">
+                        <dl>
+                            <dt>Tên dự án</dt>
+                            <dd>Thanh Âm</dd>
+                            <dt>Địa chỉ</dt>
+                            <dd>Mỹ Tho, Tiền Giang</dd>
+                            <dt>Hotline</dt>
+                            <dd><a href="tel:0865357517">0865357517</a></dd>
+                            <dt>Zalo</dt>
+                            <dd><a href="https://zalo.me/0912991489" target="_blank"
+                                    rel="noopener">zalo.me/0912991489</a></dd>
+                            <dt>Website</dt>
+                            <dd><a href="#" target="_blank" rel="noopener">thanham.vn</a></dd>
+                            <dt>Fanpage</dt>
+                            <dd><a href="#" target="_blank" rel="noopener">facebook.com/thanham</a></dd>
+                        </dl>
+                        <h4>Sứ mệnh</h4>
+                        <p>Trao công cụ giao tiếp bằng AI cho trẻ em và người khuyết tật, để mọi tiếng nói đều được lắng
+                            nghe.</p>
+                        <h4>Tầm nhìn</h4>
+                        <p>Trở thành nền tảng hỗ trợ giao tiếp AI phổ biến nhất cho người yếu thế tại Việt Nam vào năm
+                            2030.</p>
+                        <h4>Giá trị cốt lõi</h4>
+                        <p>Thấu cảm — Minh bạch — Bền vững — Cùng nhau hành động.</p>
+                        <h4>Chính sách chất lượng</h4>
+                        <p>Mọi thiết bị và phần mềm trước khi bàn giao đều được kiểm thử với chính người dùng thực tế.
+                        </p>
+                    </div>
                 </div>
-              <?php endforeach; ?>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="info-card">
-        <div class="info-card-head">
-          <div class="ico"><i class="fa-solid fa-award"></i></div>
-          <div>
-            <h3>Giải thưởng</h3>
-            <p>Ghi nhận từ cộng đồng &amp; hội đồng</p>
-          </div>
-          <i class="fa-solid fa-chevron-down chevron"></i>
-        </div>
-        <div class="card-detail">
-          <div class="card-detail-inner">
-            <div class="award-grid">
-              <?php foreach ($awards as $aw): ?>
-                <div class="award-card">
-                  <div class="award-media"><i class="fa-solid <?= htmlspecialchars($aw['icon']); ?>"></i></div>
-                  <div class="award-body">
-                    <span class="badge"><?= htmlspecialchars($aw['badge']); ?></span>
-                    <h4><?= htmlspecialchars($aw['title']); ?></h4>
-                    <p><?= htmlspecialchars($aw['desc']); ?></p>
-                  </div>
+            <div class="info-card">
+                <div class="info-card-head">
+                    <div class="ico"><i class="fa-solid fa-sitemap"></i></div>
+                    <div>
+                        <h3>Hệ thống tổ chức</h3>
+                        <p>Sơ đồ nhân sự &amp; phân quyền</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down chevron"></i>
                 </div>
-              <?php endforeach; ?>
+                <div class="card-detail">
+                    <div class="card-detail-inner">
+                        <div class="org-chart-placeholder">
+                            <img src="/ThanhAM/assets/images/so-do-to-chuc.png" alt="Sơ đồ tổ chức Thanh Âm"
+                                style="max-width:100%; border-radius:8px;"
+                                onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{innerHTML:'<i class=&quot;fa-solid fa-sitemap&quot;></i><br>Chưa có hình sơ đồ tổ chức.<br><small>Đặt ảnh tại assets/images/so-do-to-chuc.png</small>'}));">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-
-  <div class="tab-panel <?= tabClass('lichsu', $active_tab); ?>" data-tab-panel="lichsu">
-    <div class="founding-date">
-      <i class="fa-solid fa-flag"></i> Ngày thành lập: 26/06/2025
-    </div>
-    <h2 class="section-title"><i class="fa-solid fa-road"></i> Các giai đoạn phát triển</h2>
-    <div class="dev-timeline">
-      <?php foreach ($dev_stages as $stage): ?>
-        <div class="dev-step">
-          <div class="dev-period"><?= htmlspecialchars($stage['period']); ?></div>
-          <h4><?= htmlspecialchars($stage['title']); ?></h4>
-          <p><?= htmlspecialchars($stage['desc']); ?></p>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
-
-  <div class="tab-panel <?= tabClass('hoatdong', $active_tab); ?>" data-tab-panel="hoatdong">
-    <div class="two-col">
-      <div>
-        <h2 class="section-title"><i class="fa-solid fa-scale-balanced"></i> Nguyên tắc hoạt động</h2>
-        <div class="principle-list">
-          <?php foreach ($principles as $i => $p): ?>
-            <div class="principle-item">
-              <div class="num"><?= $i + 1; ?></div>
-              <div>
-                <h4><?= htmlspecialchars($p['title']); ?></h4>
-                <p><?= htmlspecialchars($p['desc']); ?></p>
-              </div>
+            <div class="info-card">
+                <div class="info-card-head">
+                    <div class="ico"><i class="fa-solid fa-people-group"></i></div>
+                    <div>
+                        <h3>Nhà sáng lập</h3>
+                        <p>6 thành viên sáng lập</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down chevron"></i>
+                </div>
+                <div class="card-detail">
+                    <div class="card-detail-inner">
+                        <div class="people-grid">
+                            <?php foreach ($founders as $f): ?>
+                            <div class="person-card">
+                                <div class="person-avatar">
+                                    <?php if (!empty($f['image'])): ?>
+                                    <img src="<?= htmlspecialchars($f['image']); ?>"
+                                        alt="<?= htmlspecialchars($f['name']); ?>">
+                                    <?php else: ?>
+                                    <?= htmlspecialchars(mb_substr($f['name'], 0, 1)); ?>
+                                    <?php endif; ?>
+                                </div>
+                                <h4><?= htmlspecialchars($f['name']); ?></h4>
+                                <span><?= htmlspecialchars($f['role']); ?></span>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <div>
-        <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Chức năng - Nhiệm vụ</h2>
-        <div class="duty-list">
-          <?php foreach ($duties as $i => $d): ?>
-            <div class="duty-item">
-              <div class="num"><?= $i + 1; ?></div>
-              <div>
-                <h4><?= htmlspecialchars($d['title']); ?></h4>
-                <p><?= htmlspecialchars($d['desc']); ?></p>
-              </div>
+
+            <div class="info-card">
+                <div class="info-card-head">
+                    <div class="ico"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div>
+                        <h3>Ban cố vấn</h3>
+                        <p>4 thầy cô đồng hành</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down chevron"></i>
+                </div>
+                <div class="card-detail">
+                    <div class="card-detail-inner">
+                        <div class="people-grid">
+                            <?php foreach ($advisors as $a): ?>
+                            <div class="person-card">
+                                <div class="person-avatar">
+                                    <img src="<?= htmlspecialchars($a['image']); ?>"
+                                        alt="<?= htmlspecialchars($a['name']); ?>">
+                                </div>
+                                <h4><?= htmlspecialchars($a['name']); ?></h4>
+                                <span><?= htmlspecialchars($a['role']); ?></span>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-          <?php endforeach; ?>
+
+            <div class="info-card">
+                <div class="info-card-head">
+                    <div class="ico"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <h3>Giải thưởng</h3>
+                        <p>Ghi nhận từ cộng đồng &amp; hội đồng</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-down chevron"></i>
+                </div>
+                <div class="card-detail">
+                    <div class="card-detail-inner">
+                        <div class="award-grid">
+                            <?php foreach ($awards as $aw): ?>
+                            <div class="award-card">
+                                <div class="award-media"><i class="fa-solid <?= htmlspecialchars($aw['icon']); ?>"></i>
+                                </div>
+                                <div class="award-body">
+                                    <span class="badge"><?= htmlspecialchars($aw['badge']); ?></span>
+                                    <h4><?= htmlspecialchars($aw['title']); ?></h4>
+                                    <p><?= htmlspecialchars($aw['desc']); ?></p>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
+
+    <div class="tab-panel <?= tabClass('lichsu', $active_tab); ?>" data-tab-panel="lichsu">
+        <div class="founding-date">
+            <i class="fa-solid fa-flag"></i> Ngày thành lập: 26/06/2025
+        </div>
+        <h2 class="section-title"><i class="fa-solid fa-road"></i> Các giai đoạn phát triển</h2>
+        <div class="dev-timeline">
+            <?php foreach ($dev_stages as $stage): ?>
+            <div class="dev-step">
+                <div class="dev-period"><?= htmlspecialchars($stage['period']); ?></div>
+                <h4><?= htmlspecialchars($stage['title']); ?></h4>
+                <p><?= htmlspecialchars($stage['desc']); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div class="tab-panel <?= tabClass('hoatdong', $active_tab); ?>" data-tab-panel="hoatdong">
+        <div class="two-col">
+            <div>
+                <h2 class="section-title"><i class="fa-solid fa-scale-balanced"></i> Nguyên tắc hoạt động</h2>
+                <div class="principle-list">
+                    <?php foreach ($principles as $i => $p): ?>
+                    <div class="principle-item">
+                        <div class="num"><?= $i + 1; ?></div>
+                        <div>
+                            <h4><?= htmlspecialchars($p['title']); ?></h4>
+                            <p><?= htmlspecialchars($p['desc']); ?></p>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div>
+                <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Chức năng - Nhiệm vụ</h2>
+                <div class="duty-list">
+                    <?php foreach ($duties as $i => $d): ?>
+                    <div class="duty-item">
+                        <div class="num"><?= $i + 1; ?></div>
+                        <div>
+                            <h4><?= htmlspecialchars($d['title']); ?></h4>
+                            <p><?= htmlspecialchars($d['desc']); ?></p>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
-<?php require __DIR__ . '/../includes/footer.php'; ?>
+<?php
+include '../includes/footer.php';
+?>
 
 <script src="/ThanhAM/assets/js/main.js"></script>
 <?php

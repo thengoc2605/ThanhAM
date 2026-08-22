@@ -186,111 +186,118 @@ require __DIR__ . '/../includes/header.php';
 <link rel="stylesheet" href="/ThanhAM/assets/css/stylegiaiphap.css">
 
 <section class="page-header">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/ThanhAM/pages/trangchu.php">Trang chủ</a> / Giải pháp
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/ThanhAM/index.php">Trang chủ</a> / Giải pháp
+        </div>
+        <h1>Giải pháp Thanh Âm</h1>
+        <p>Bộ tính năng AI hỗ trợ giao tiếp — chạm vào từng biểu tượng để khám phá chi tiết cách sử dụng.</p>
     </div>
-    <h1>Giải pháp Thanh Âm</h1>
-    <p>Bộ tính năng AI hỗ trợ giao tiếp — chạm vào từng biểu tượng để khám phá chi tiết cách sử dụng.</p>
-  </div>
 </section>
 
 <div class="container">
 
-  <!-- ================= PHẦN 1: TÍNH NĂNG ================= -->
-  <section class="features-section">
-    <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Các tính năng của hệ thống</h2>
-    <p class="section-sub">Nhấn vào một biểu tượng để xem mô tả, công dụng, đối tượng phù hợp, hướng dẫn sử dụng và video minh hoạ.</p>
+    <!-- ================= PHẦN 1: TÍNH NĂNG ================= -->
+    <section class="features-section">
+        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Các tính năng của hệ thống</h2>
+        <p class="section-sub">Nhấn vào một biểu tượng để xem mô tả, công dụng, đối tượng phù hợp, hướng dẫn sử dụng và
+            video minh hoạ.</p>
 
-    <div class="feature-buttons" id="featureButtons">
-      <?php foreach ($features_main as $f): ?>
-        <button type="button" class="feature-btn" data-feature="<?= htmlspecialchars($f['id']); ?>">
-          <span class="feature-circle"><i class="fa-solid <?= htmlspecialchars($f['icon']); ?>"></i></span>
-          <span class="feature-label"><?= htmlspecialchars($f['title']); ?></span>
-        </button>
-      <?php endforeach; ?>
+        <div class="feature-buttons" id="featureButtons">
+            <?php foreach ($features_main as $f): ?>
+            <button type="button" class="feature-btn" data-feature="<?= htmlspecialchars($f['id']); ?>">
+                <span class="feature-circle"><i class="fa-solid <?= htmlspecialchars($f['icon']); ?>"></i></span>
+                <span class="feature-label"><?= htmlspecialchars($f['title']); ?></span>
+            </button>
+            <?php endforeach; ?>
 
-      <?php foreach ($features_extra as $f): ?>
-        <button type="button" class="feature-btn feature-extra" data-feature="<?= htmlspecialchars($f['id']); ?>" hidden>
-          <span class="feature-circle"><i class="fa-solid <?= htmlspecialchars($f['icon']); ?>"></i></span>
-          <span class="feature-label"><?= htmlspecialchars($f['title']); ?></span>
-        </button>
-      <?php endforeach; ?>
+            <?php foreach ($features_extra as $f): ?>
+            <button type="button" class="feature-btn feature-extra" data-feature="<?= htmlspecialchars($f['id']); ?>"
+                hidden>
+                <span class="feature-circle"><i class="fa-solid <?= htmlspecialchars($f['icon']); ?>"></i></span>
+                <span class="feature-label"><?= htmlspecialchars($f['title']); ?></span>
+            </button>
+            <?php endforeach; ?>
 
-      <button type="button" class="feature-btn feature-toggle-more" id="featureToggleMore">
-        <span class="feature-circle"><i class="fa-solid fa-ellipsis"></i></span>
-        <span class="feature-label">Thêm</span>
-      </button>
-    </div>
-
-    <div class="feature-detail-panel" id="featureDetailPanel">
-
-      <div class="feature-detail-placeholder" id="featureDetailPlaceholder">
-        <i class="fa-solid fa-hand-point-up"></i>
-        <p>Chọn một tính năng phía trên để xem thông tin chi tiết.</p>
-      </div>
-
-      <?php foreach (array_merge($features_main, $features_extra) as $f): ?>
-        <article class="feature-detail" data-feature-detail="<?= htmlspecialchars($f['id']); ?>" hidden>
-          <div class="feature-detail-head">
-            <span class="feature-circle feature-circle-lg"><i class="fa-solid <?= htmlspecialchars($f['icon']); ?>"></i></span>
-            <div>
-              <h3><?= htmlspecialchars($f['title']); ?></h3>
-              <p class="feature-detail-summary"><?= htmlspecialchars($f['summary']); ?></p>
-            </div>
-          </div>
-
-          <div class="feature-detail-body">
-            <div class="feature-detail-text">
-              <h4><i class="fa-solid fa-circle-info"></i> Công dụng</h4>
-              <p><?= htmlspecialchars($f['purpose']); ?></p>
-
-              <h4><i class="fa-solid fa-users"></i> Đối tượng phù hợp</h4>
-              <p><?= htmlspecialchars($f['target']); ?></p>
-
-              <h4><i class="fa-solid fa-list-ol"></i> Hướng dẫn sử dụng</h4>
-              <ol>
-                <?php foreach ($f['steps'] as $step): ?>
-                  <li><?= htmlspecialchars($step); ?></li>
-                <?php endforeach; ?>
-              </ol>
-            </div>
-
-            <div class="feature-detail-video">
-              <h4><i class="fa-solid fa-clapperboard"></i> Video hướng dẫn</h4>
-              <div class="video-frame">
-                <video controls preload="none" poster="/ThanhAM/assets/images/video-poster-<?= htmlspecialchars($f['id']); ?>.jpg">
-                  <source src="/ThanhAM/assets/videos/<?= htmlspecialchars($f['video']); ?>" type="video/mp4">
-                </video>
-                <div class="video-fallback">
-                  <i class="fa-solid fa-video"></i>
-                  <span>Chưa có video. Đặt file tại<br><code>assets/videos/<?= htmlspecialchars($f['video']); ?></code></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      <?php endforeach; ?>
-
-    </div>
-  </section>
-
-  <!-- ================= PHẦN 2: ĐỐI TƯỢNG SỬ DỤNG ================= -->
-  <section class="audience-section">
-    <h2 class="section-title"><i class="fa-solid fa-people-group"></i> Đối tượng sử dụng Thanh Âm</h2>
-    <p class="section-sub">Thanh Âm được thiết kế để đồng hành cùng nhiều nhóm người khác nhau trong hành trình giao tiếp.</p>
-
-    <div class="audience-grid">
-      <?php foreach ($audiences as $i => $a): ?>
-        <div class="audience-card">
-          <div class="audience-num">0<?= $i + 1; ?></div>
-          <div class="audience-ico"><i class="fa-solid <?= htmlspecialchars($a['icon']); ?>"></i></div>
-          <h4><?= htmlspecialchars($a['title']); ?></h4>
-          <p><?= htmlspecialchars($a['desc']); ?></p>
+            <button type="button" class="feature-btn feature-toggle-more" id="featureToggleMore">
+                <span class="feature-circle"><i class="fa-solid fa-ellipsis"></i></span>
+                <span class="feature-label">Thêm</span>
+            </button>
         </div>
-      <?php endforeach; ?>
-    </div>
-  </section>
+
+        <div class="feature-detail-panel" id="featureDetailPanel">
+
+            <div class="feature-detail-placeholder" id="featureDetailPlaceholder">
+                <i class="fa-solid fa-hand-point-up"></i>
+                <p>Chọn một tính năng phía trên để xem thông tin chi tiết.</p>
+            </div>
+
+            <?php foreach (array_merge($features_main, $features_extra) as $f): ?>
+            <article class="feature-detail" data-feature-detail="<?= htmlspecialchars($f['id']); ?>" hidden>
+                <div class="feature-detail-head">
+                    <span class="feature-circle feature-circle-lg"><i
+                            class="fa-solid <?= htmlspecialchars($f['icon']); ?>"></i></span>
+                    <div>
+                        <h3><?= htmlspecialchars($f['title']); ?></h3>
+                        <p class="feature-detail-summary"><?= htmlspecialchars($f['summary']); ?></p>
+                    </div>
+                </div>
+
+                <div class="feature-detail-body">
+                    <div class="feature-detail-text">
+                        <h4><i class="fa-solid fa-circle-info"></i> Công dụng</h4>
+                        <p><?= htmlspecialchars($f['purpose']); ?></p>
+
+                        <h4><i class="fa-solid fa-users"></i> Đối tượng phù hợp</h4>
+                        <p><?= htmlspecialchars($f['target']); ?></p>
+
+                        <h4><i class="fa-solid fa-list-ol"></i> Hướng dẫn sử dụng</h4>
+                        <ol>
+                            <?php foreach ($f['steps'] as $step): ?>
+                            <li><?= htmlspecialchars($step); ?></li>
+                            <?php endforeach; ?>
+                        </ol>
+                    </div>
+
+                    <div class="feature-detail-video">
+                        <h4><i class="fa-solid fa-clapperboard"></i> Video hướng dẫn</h4>
+                        <div class="video-frame">
+                            <video controls preload="none"
+                                poster="/ThanhAM/assets/images/video-poster-<?= htmlspecialchars($f['id']); ?>.jpg">
+                                <source src="/ThanhAM/assets/videos/<?= htmlspecialchars($f['video']); ?>"
+                                    type="video/mp4">
+                            </video>
+                            <div class="video-fallback">
+                                <i class="fa-solid fa-video"></i>
+                                <span>Chưa có video. Đặt file
+                                    tại<br><code>assets/videos/<?= htmlspecialchars($f['video']); ?></code></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <?php endforeach; ?>
+
+        </div>
+    </section>
+
+    <!-- ================= PHẦN 2: ĐỐI TƯỢNG SỬ DỤNG ================= -->
+    <section class="audience-section">
+        <h2 class="section-title"><i class="fa-solid fa-people-group"></i> Đối tượng sử dụng Thanh Âm</h2>
+        <p class="section-sub">Thanh Âm được thiết kế để đồng hành cùng nhiều nhóm người khác nhau trong hành trình giao
+            tiếp.</p>
+
+        <div class="audience-grid">
+            <?php foreach ($audiences as $i => $a): ?>
+            <div class="audience-card">
+                <div class="audience-num">0<?= $i + 1; ?></div>
+                <div class="audience-ico"><i class="fa-solid <?= htmlspecialchars($a['icon']); ?>"></i></div>
+                <h4><?= htmlspecialchars($a['title']); ?></h4>
+                <p><?= htmlspecialchars($a['desc']); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
 </div>
 
@@ -298,55 +305,62 @@ require __DIR__ . '/../includes/header.php';
 
 <!-- ============ JS TƯƠNG TÁC RIÊNG CHO TRANG GIẢI PHÁP ============ -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var buttons        = document.querySelectorAll('.feature-btn[data-feature]');
-  var details         = document.querySelectorAll('.feature-detail[data-feature-detail]');
-  var placeholder      = document.getElementById('featureDetailPlaceholder');
-  var panel            = document.getElementById('featureDetailPanel');
-  var toggleMoreBtn    = document.getElementById('featureToggleMore');
-  var extraButtons     = document.querySelectorAll('.feature-btn.feature-extra');
+document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.feature-btn[data-feature]');
+    var details = document.querySelectorAll('.feature-detail[data-feature-detail]');
+    var placeholder = document.getElementById('featureDetailPlaceholder');
+    var panel = document.getElementById('featureDetailPanel');
+    var toggleMoreBtn = document.getElementById('featureToggleMore');
+    var extraButtons = document.querySelectorAll('.feature-btn.feature-extra');
 
-  function showFeature(id) {
-    buttons.forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-feature') === id);
-    });
-    details.forEach(function (d) {
-      d.hidden = d.getAttribute('data-feature-detail') !== id;
-    });
-    if (placeholder) placeholder.hidden = true;
+    function showFeature(id) {
+        buttons.forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-feature') === id);
+        });
+        details.forEach(function(d) {
+            d.hidden = d.getAttribute('data-feature-detail') !== id;
+        });
+        if (placeholder) placeholder.hidden = true;
 
-    if (panel) {
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (panel) {
+            panel.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }
     }
-  }
 
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var id = btn.getAttribute('data-feature');
-      var alreadyActive = btn.classList.contains('active');
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var id = btn.getAttribute('data-feature');
+            var alreadyActive = btn.classList.contains('active');
 
-      if (alreadyActive) {
-        buttons.forEach(function (b) { b.classList.remove('active'); });
-        details.forEach(function (d) { d.hidden = true; });
-        if (placeholder) placeholder.hidden = false;
-      } else {
-        showFeature(id);
-      }
+            if (alreadyActive) {
+                buttons.forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                details.forEach(function(d) {
+                    d.hidden = true;
+                });
+                if (placeholder) placeholder.hidden = false;
+            } else {
+                showFeature(id);
+            }
+        });
     });
-  });
 
-  if (toggleMoreBtn) {
-    toggleMoreBtn.addEventListener('click', function () {
-      var isOpen = toggleMoreBtn.classList.toggle('open');
-      extraButtons.forEach(function (btn) {
-        btn.hidden = !isOpen;
-      });
-      toggleMoreBtn.querySelector('.feature-label').textContent = isOpen ? 'Thu gọn' : 'Thêm';
-      toggleMoreBtn.querySelector('i').className = isOpen
-        ? 'fa-solid fa-chevron-up'
-        : 'fa-solid fa-ellipsis';
-    });
-  }
+    if (toggleMoreBtn) {
+        toggleMoreBtn.addEventListener('click', function() {
+            var isOpen = toggleMoreBtn.classList.toggle('open');
+            extraButtons.forEach(function(btn) {
+                btn.hidden = !isOpen;
+            });
+            toggleMoreBtn.querySelector('.feature-label').textContent = isOpen ? 'Thu gọn' : 'Thêm';
+            toggleMoreBtn.querySelector('i').className = isOpen ?
+                'fa-solid fa-chevron-up' :
+                'fa-solid fa-ellipsis';
+        });
+    }
 });
 </script>
 
