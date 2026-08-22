@@ -41,15 +41,16 @@
                 Đồng hành
             </a>
 
-            <a href="/ThanhAM/pages/ve_thanh_am.php" class="menu-link">
+
+            <a href="/ThanhAM/pages/vethanham.php" class="menu-link">
                 Về Thanh Âm
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/giaiphap.php" class="menu-link">
                 Giải pháp
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/cauchuyen.php" class="menu-link">
                 Câu chuyện
             </a>
 
@@ -75,7 +76,7 @@
 
 
         <a href="#" class="experience-button">
-            Trải nghiệm
+            Tải xuống
         </a>
 
     </header>
