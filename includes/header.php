@@ -40,10 +40,6 @@
                 Đồng hành
             </a>
 
-            <a href="#" class="menu-link">
-                Trải nghiệm Thanh Âm
-            </a>
-
             <a href="/ThanhAM/pages/ve_thanh_am.php" class="menu-link">
                 Về Thanh Âm
             </a>
@@ -78,7 +74,7 @@
 
 
         <a href="#" class="experience-button">
-            Trải nghiệm
+            Tải xuống
         </a>
 
     </header>
