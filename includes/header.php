@@ -40,11 +40,15 @@
                 Đồng hành
             </a>
 
+
             <a href="#" class="menu-link">
                 Trải nghiệm Thanh Âm
             </a>
 
             <a href="/ThanhAM/pages/vethanham.php" class="menu-link">
+
+            <a href="/ThanhAM/pages/ve_thanh_am.php" class="menu-link">
+
                 Về Thanh Âm
             </a>
 
@@ -60,7 +64,7 @@
                 Tác động
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/thu_vien_ho_so.php" class="menu-link">
                 Thư viện hồ sơ
             </a>
 
@@ -68,7 +72,7 @@
                 MEDIA
             </a>
 
-            <a href="#" class="menu-link sponsor-link">
+            <a href="/ThanhAM/pages/danh_sach_tai_tro.php" class="menu-link sponsor-link">
                 Danh sách tài trợ
             </a>
 
@@ -78,7 +82,7 @@
 
 
         <a href="#" class="experience-button">
-            Trải nghiệm
+            Tải xuống
         </a>
 
     </header>
