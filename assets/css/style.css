@@ -1,0 +1,806 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #f5f7fa;
+
+  color: #222;
+
+  min-height: 100vh;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  width: 100%;
+
+  min-height: 64px;
+
+  background: linear-gradient(
+    90deg,
+    #034f8f 0%,
+    #075da1 35%,
+    #8c315e 70%,
+    #d71920 100%
+  );
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 48px;
+
+  color: white;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+
+  position: relative;
+
+  z-index: 1000;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.site-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  margin-right: 30px;
+}
+
+.logo-icon {
+  width: 29px;
+
+  height: 29px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 21px;
+}
+
+/* =========================================
+   MENU
+========================================= */
+
+.main-menu {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  height: 64px;
+
+  flex: 1;
+}
+
+.main-menu a,
+.dropdown-button {
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 17px;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.main-menu a:hover,
+.dropdown-button:hover,
+.menu-item.active {
+  background: rgba(0, 0, 0, 0.17);
+}
+
+/* =========================================
+   DROPDOWN
+========================================= */
+
+.menu-item {
+  position: relative;
+
+  height: 64px;
+}
+
+.dropdown-button {
+  gap: 6px;
+}
+
+.arrow {
+  font-size: 11px;
+
+  transition: transform 0.2s;
+}
+
+.menu-item:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 64px;
+
+  left: 0;
+
+  min-width: 220px;
+
+  background: white;
+
+  border-radius: 0 0 7px 7px;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: translateY(-5px);
+
+  transition: 0.2s;
+}
+
+.menu-item:hover .dropdown-menu {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  height: auto;
+
+  display: block;
+
+  padding: 13px 17px;
+
+  color: #333;
+
+  background: white;
+
+  font-size: 15px;
+}
+
+.dropdown-menu a:hover {
+  color: #07538f;
+
+  background: #f1f5f9;
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.header-search {
+  width: 200px;
+
+  height: 38px;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 20px;
+
+  padding: 0 18px;
+
+  font-size: 14px;
+
+  background: white;
+
+  color: #333;
+
+  margin-left: 10px;
+}
+
+/* =========================================
+   NÚT TRẢI NGHIỆM
+========================================= */
+
+.experience-button {
+  margin-left: 13px;
+
+  padding: 11px 20px;
+
+  border-radius: 4px;
+
+  background: #d71920;
+
+  color: white !important;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  font-size: 15px;
+
+  white-space: nowrap;
+
+  transition: 0.2s;
+}
+
+.experience-button:hover {
+  background: #b51218;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+  width: 100%;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 45px 25px 60px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  background: #ffffff;
+
+  border: 1px solid #dcdcdc;
+
+  border-radius: 8px;
+
+  padding: 48px 30px;
+
+  text-align: center;
+
+  margin-bottom: 35px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.hero h1 {
+  font-size: 34px;
+
+  color: #202020;
+
+  margin-bottom: 18px;
+
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 25px;
+
+  font-weight: 600;
+
+  color: #064f8f;
+}
+
+/* =========================================
+   BẢNG THÔNG TIN
+========================================= */
+
+.information-box {
+  background: #ffffff;
+
+  border: 1px solid #d8d8d8;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.information-title {
+  background: #eeeeee;
+
+  border-bottom: 1px solid #d5d5d5;
+
+  padding: 17px 25px;
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  color: #222;
+}
+
+.information-title .icon {
+  color: #07538f;
+
+  margin-right: 8px;
+}
+
+.information-content {
+  padding: 5px 25px 15px;
+}
+
+/* =========================================
+   NOTICE
+========================================= */
+
+.notice {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid #dddddd;
+}
+
+.notice:last-child {
+  border-bottom: none;
+}
+
+.notice-icon {
+  width: 43px;
+
+  height: 43px;
+
+  min-width: 43px;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 20px;
+
+  background: #e5f0ff;
+
+  color: #07538f;
+}
+
+.notice-icon.red {
+  background: #ffe4e4;
+
+  color: #d71920;
+}
+
+.notice-content {
+  flex: 1;
+}
+
+.notice-text {
+  font-size: 19px;
+
+  line-height: 1.55;
+
+  color: #333;
+
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   TAG
+========================================= */
+
+.notice-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  background: #e9e9e9;
+
+  color: #555;
+
+  font-size: 14px;
+}
+
+.tag.red {
+  background: #ffe0e0;
+
+  color: #c62828;
+}
+
+/* =========================================
+   LINK HỢP TÁC
+========================================= */
+
+.cooperation-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 5px;
+
+  margin-bottom: 15px;
+
+  color: #07538f;
+
+  text-decoration: none;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.cooperation-link:hover {
+  color: #d71920;
+
+  transform: translateX(3px);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  width: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #034f8f 0%,
+    #075da1 35%,
+    #8c315e 70%,
+    #d71920 100%
+  );
+
+  color: white;
+
+  padding: 48px 48px 18px;
+
+  margin-top: 20px;
+}
+
+.footer-container {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.1fr
+    1.1fr
+    1fr
+    1fr;
+
+  gap: 50px;
+}
+
+.footer-column h3 {
+  font-size: 22px;
+
+  margin-bottom: 20px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.footer-column p,
+.footer-column a {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  margin-bottom: 7px;
+}
+
+.footer-column a:hover {
+  color: white;
+
+  text-decoration: underline;
+}
+
+/* =========================================
+   FOOTER LINE
+========================================= */
+
+.footer-line {
+  max-width: 1250px;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  margin: 45px auto 28px;
+}
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.copyright {
+  text-align: center;
+
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .site-header {
+    padding: 0 20px;
+  }
+
+  .site-logo {
+    margin-right: 10px;
+  }
+
+  .main-menu a,
+  .dropdown-button {
+    padding: 0 10px;
+
+    font-size: 14px;
+  }
+
+  .header-search {
+    width: 150px;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    padding: 30px 18px 45px;
+  }
+
+  .hero {
+    padding: 35px 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 21px;
+  }
+
+  .information-title {
+    font-size: 22px;
+  }
+
+  .notice-text {
+    font-size: 17px;
+  }
+
+  .site-footer {
+    padding: 40px 25px 18px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+  .site-header {
+    flex-wrap: wrap;
+
+    padding: 12px 15px;
+
+    min-height: auto;
+  }
+
+  .site-logo {
+    height: 45px;
+  }
+
+  .main-menu {
+    order: 3;
+
+    width: 100%;
+
+    height: auto;
+
+    overflow-x: auto;
+
+    padding-top: 5px;
+  }
+
+  .main-menu a,
+  .dropdown-button,
+  .menu-item {
+    height: 45px;
+  }
+
+  .dropdown-menu {
+    top: 45px;
+  }
+
+  .header-search {
+    margin-left: auto;
+
+    width: 150px;
+  }
+
+  .experience-button {
+    padding: 9px 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 20px 12px 35px;
+  }
+
+  .hero {
+    padding: 28px 15px;
+
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 23px;
+
+    line-height: 1.35;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .information-title {
+    font-size: 20px;
+
+    padding: 14px 16px;
+  }
+
+  .information-content {
+    padding: 0 16px 10px;
+  }
+
+  .notice {
+    gap: 12px;
+
+    padding: 20px 0;
+  }
+
+  .notice-icon {
+    width: 38px;
+
+    height: 38px;
+
+    min-width: 38px;
+
+    font-size: 17px;
+  }
+
+  .notice-text {
+    font-size: 16px;
+  }
+
+  .tag {
+    font-size: 12px;
+  }
+
+  .site-footer {
+    padding: 35px 20px 18px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .footer-column h3 {
+    font-size: 19px;
+
+    margin-bottom: 12px;
+  }
+
+  .footer-column p,
+  .footer-column a {
+    font-size: 15px;
+  }
+
+  .footer-line {
+    margin-top: 30px;
+  }
+
+  .header-search {
+    display: none;
+  }
+
+  .experience-button {
+    margin-left: auto;
+  }
+
+  .site-logo {
+    font-size: 18px;
+  }
+
+  .main-menu {
+    gap: 0;
+  }
+
+  .main-menu a,
+  .dropdown-button {
+    padding: 0 9px;
+
+    font-size: 13px;
+  }
+}
