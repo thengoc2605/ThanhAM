@@ -41,7 +41,7 @@ include_once '../includes/header.php';
                 <div class="video-embed">
                     <video controls preload="metadata" title="Video giới thiệu Thanh Âm">
                         <!-- Thay đổi đường dẫn đến file video thực tế của bạn -->
-                        <source src="/ThanhAM/uploads/videos/Clip giới thiệu.mp4" type="video/mp4">
+                        <source src="/ThanhAM/uploads/Videos/Clip giới thiệu.mp4" type="video/mp4">
                         Trình duyệt của bạn không hỗ trợ xem video này.
                     </video>
                 </div>
@@ -52,7 +52,7 @@ include_once '../includes/header.php';
                 <div class="video-embed">
                     <video controls preload="metadata" title="Mời hợp tác với Thanh Âm">
                         <!-- Thay đổi đường dẫn đến file video thực tế của bạn -->
-                        <source src="/ThanhAM/uploads/videos/Clip mời hợp tác.mp4" type="video/mp4">
+                        <source src="/ThanhAM/uploads/Videos/Clip mời hợp tác.mp4" type="video/mp4">
                         Trình duyệt của bạn không hỗ trợ xem video này.
                     </video>
                 </div>
@@ -71,16 +71,22 @@ include_once '../includes/header.php';
                     </p>
                 </div>
                 <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/placeholder_id3" title="Video hướng dẫn cài đặt"
-                        allowfullscreen></iframe>
+                    <video controls preload="metadata" title="Video hướng dẫn cài đặt">
+                        <!-- Thay đổi đường dẫn đến file video thực tế của bạn -->
+                        <source src="/ThanhAM/uploads/Videos/huong_dan_cai_dat.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ xem video này.
+                    </video>
                 </div>
             </div>
 
             <!-- Video 4: Hướng dẫn sử dụng -->
             <div class="video-card reverse">
                 <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/placeholder_id4" title="Video hướng dẫn sử dụng"
-                        allowfullscreen></iframe>
+                    <video controls preload="metadata" title="Video hướng dẫn sử dụng">
+                        <!-- Thay đổi đường dẫn đến file video thực tế của bạn -->
+                        <source src="/ThanhAM/uploads/Videos/clip sử dụng chung.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ xem video này.
+                    </video>
                 </div>
                 <div class="video-info">
                     <h3>Video hướng dẫn sử dụng</h3>
@@ -137,11 +143,11 @@ include_once '../includes/header.php';
                     chuyện về công nghệ AI và định hướng hỗ trợ giao tiếp cho những người gặp khó khăn trong giao tiếp.
                 </p>
                 <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/placeholder_vtv" title="Truyền thông VTV"
+                    <iframe src="https://www.youtube.com/embed/r8NzExe47Gw" title="Truyền thông VTV"
                         allowfullscreen></iframe>
                 </div>
                 <div class="qr-box">
-                    <img src="/ThanhAM/assets/images/qr-vtv.png" alt="QR Link YouTube VTV"
+                    <img src="/ThanhAM/uploads/Images/QR VTV.png" alt="QR Link YouTube VTV"
                         onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://youtube.com'">
                     <span>Quét mã QR dẫn tới link Youtube gốc</span>
                 </div>
@@ -156,11 +162,11 @@ include_once '../includes/header.php';
                 <p class="news-desc">Dự án Thanh Âm được giới thiệu trên Đài Phát thanh – Truyền hình Đồng Tháp, ghi
                     nhận những nỗ lực ứng dụng công nghệ để tạo ra giá trị xã hội và hỗ trợ cộng đồng.</p>
                 <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/placeholder_dt" title="Truyền thông TH Đồng Tháp"
+                    <iframe src="https://www.youtube.com/embed/qk1BXTK_cqk" title="Truyền thông TH Đồng Tháp"
                         allowfullscreen></iframe>
                 </div>
                 <div class="qr-box">
-                    <img src="/ThanhAM/assets/images/qr-dongthap.png" alt="QR Link YouTube Đồng Tháp"
+                    <img src="/ThanhAM/uploads/Images/QR ĐT.png" alt="QR Link YouTube Đồng Tháp"
                         onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://youtube.com'">
                     <span>Quét mã QR dẫn tới link Youtube gốc</span>
                 </div>
