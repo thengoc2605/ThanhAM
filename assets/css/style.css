@@ -13,13 +13,10 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-
-  background: #f5f7fa;
-
-  color: #222;
-
   min-height: 100vh;
+  background: #f5f7fa;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* =========================================
@@ -27,111 +24,60 @@ body {
 ========================================= */
 
 .site-header {
-  width: 100%;
-
-  min-height: 64px;
-
-  background: linear-gradient(
-    90deg,
-    #034f8f 0%,
-    #075da1 35%,
-    #8c315e 70%,
-    #d71920 100%
-  );
-
-  display: flex;
-
-  align-items: center;
-
-  padding: 0 48px;
-
-  color: white;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-
   position: relative;
-
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 0 48px;
+  background: linear-gradient(90deg, #034f8f 0%, #075da1 35%, #8c315e 70%, #d71920 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
-
-/* =========================================
-   LOGO
-========================================= */
 
 .site-logo {
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 20px;
-
-  font-weight: 700;
-
-  white-space: nowrap;
-
   margin-right: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .logo-icon {
-  width: 29px;
-
-  height: 29px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
+  width: 29px;
+  height: 29px;
   font-size: 21px;
 }
 
-/* =========================================
-   MENU
-========================================= */
-
 .main-menu {
   display: flex;
-
-  align-items: center;
-
-  gap: 4px;
-
-  height: 64px;
-
   flex: 1;
+  align-items: center;
+  gap: 4px;
+  height: 64px;
 }
 
 .main-menu a,
 .dropdown-button {
-  height: 64px;
-
   display: flex;
-
   align-items: center;
-
+  height: 64px;
   padding: 0 17px;
-
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 16px;
-
-  font-weight: 500;
-
   border: none;
-
   background: transparent;
-
+  color: white;
   cursor: pointer;
-
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
   transition: background 0.2s;
 }
 
@@ -141,13 +87,8 @@ body {
   background: rgba(0, 0, 0, 0.17);
 }
 
-/* =========================================
-   DROPDOWN
-========================================= */
-
 .menu-item {
   position: relative;
-
   height: 64px;
 }
 
@@ -157,7 +98,6 @@ body {
 
 .arrow {
   font-size: 11px;
-
   transition: transform 0.2s;
 }
 
@@ -167,49 +107,31 @@ body {
 
 .dropdown-menu {
   position: absolute;
-
   top: 64px;
-
   left: 0;
-
   min-width: 220px;
-
-  background: white;
-
-  border-radius: 0 0 7px 7px;
-
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
   overflow: hidden;
-
+  border-radius: 0 0 7px 7px;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   opacity: 0;
-
   visibility: hidden;
-
   transform: translateY(-5px);
-
   transition: 0.2s;
 }
 
 .menu-item:hover .dropdown-menu {
   opacity: 1;
-
   visibility: visible;
-
   transform: translateY(0);
 }
 
 .dropdown-menu a {
-  height: auto;
-
   display: block;
-
+  height: auto;
   padding: 13px 17px;
-
-  color: #333;
-
   background: white;
-
+  color: #333;
   font-size: 15px;
 }
 
