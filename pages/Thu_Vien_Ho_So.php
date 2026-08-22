@@ -16,7 +16,7 @@ include '../includes/header.php';
 		<article class="profile-card">
 			<div class="profile-card-heading"><span class="profile-icon">▤</span><h2>Hồ sơ năng lực</h2></div>
 			<div class="profile-card-links">
-				<a href="#"><span>▧</span>Hồ sơ chi tiết<i>⇩</i></a>
+				<a href="ho_so_nang_luc.php"><span>▧</span>Hồ sơ chi tiết<i>⇩</i></a>
 				<a href="#"><span>▣</span>Hồ sơ trình chiếu<i>◉</i></a>
 			</div>
 		</article>

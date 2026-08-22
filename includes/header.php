@@ -74,7 +74,7 @@
 
 
         <a href="#" class="experience-button">
-            Trải nghiệm
+            Tải xuống
         </a>
 
     </header>
