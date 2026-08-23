@@ -5,6 +5,7 @@
 // Include Header đã có sẵn
 include_once '../includes/header.php'; 
 ?>
+<link rel="stylesheet" href="/ThanhAM/assets/css/media.css">
 <main class="media-container">
     <!-- Hero Banner Trang Media -->
     <section class="media-hero">

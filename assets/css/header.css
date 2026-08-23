@@ -1,0 +1,238 @@
+/* =========================================
+   HEADER
+========================================= */
+.site-header {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 0 48px;
+  background: linear-gradient(
+    90deg,
+    #034f8f 0%,
+    #075da1 35%,
+    #8c315e 70%,
+    #d71920 100%
+  );
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  font-size: 21px;
+}
+
+.main-menu {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 4px;
+  height: 64px;
+}
+
+.main-menu a,
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 17px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.main-menu a:hover,
+.dropdown-button:hover,
+.menu-item.active {
+  background: rgba(0, 0, 0, 0.17);
+}
+
+.menu-item {
+  position: relative;
+  height: 64px;
+}
+
+.dropdown-button {
+  gap: 6px;
+}
+
+.arrow {
+  font-size: 11px;
+  transition: transform 0.2s;
+}
+
+.menu-item:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  min-width: 220px;
+  overflow: hidden;
+  border-radius: 0 0 7px 7px;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: 0.2s;
+}
+
+.menu-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  height: auto;
+  padding: 13px 17px;
+  background: white;
+  color: #333;
+  font-size: 15px;
+}
+
+.dropdown-menu a:hover {
+  color: #07538f;
+  background: #f1f5f9;
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+.header-search {
+  width: 200px;
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 0 18px;
+  font-size: 14px;
+  background: white;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* =========================================
+   NÚT TRẢI NGHIỆM (TẢI XUỐNG)
+========================================= */
+.experience-button {
+  margin-left: 13px;
+  padding: 11px 20px;
+  border-radius: 4px;
+  background: #d71920;
+  color: white !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.experience-button:hover {
+  background: #b51218;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   RESPONSIVE HEADER - TABLET
+========================================= */
+@media (max-width: 1050px) {
+  .site-header {
+    padding: 0 20px;
+  }
+  .site-logo {
+    margin-right: 10px;
+  }
+  .main-menu a,
+  .dropdown-button {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  .header-search {
+    width: 150px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE HEADER - MOBILE
+========================================= */
+@media (max-width: 800px) {
+  .site-header {
+    flex-wrap: wrap;
+    padding: 12px 15px;
+    min-height: auto;
+  }
+  .site-logo {
+    height: 45px;
+  }
+  .main-menu {
+    order: 3;
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    padding-top: 5px;
+  }
+  .main-menu a,
+  .dropdown-button,
+  .menu-item {
+    height: 45px;
+  }
+  .dropdown-menu {
+    top: 45px;
+  }
+  .header-search {
+    margin-left: auto;
+    width: 150px;
+  }
+  .experience-button {
+    padding: 9px 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-logo {
+    font-size: 18px;
+  }
+  .main-menu {
+    gap: 0;
+  }
+  .main-menu a,
+  .dropdown-button {
+    padding: 0 9px;
+    font-size: 13px;
+  }
+  .header-search {
+    display: none;
+  }
+  .experience-button {
+    margin-left: auto;
+  }
+}

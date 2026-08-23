@@ -10,7 +10,8 @@
     <title>Thanh Âm - Hệ thống AI hỗ trợ giao tiếp</title>
 
     <link rel="stylesheet" href="/ThanhAM/assets/css/style.css">
-    <link rel="stylesheet" href="/ThanhAM/assets/css/media.css">
+    <link rel="stylesheet" href="/ThanhAM/assets/css/header.css">
+    <link rel="stylesheet" href="/ThanhAM/assets/css/footer.css">
 
 </head>
 
@@ -37,7 +38,7 @@
                 Trang chủ
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/dong_hanh.php" class="menu-link">
                 Đồng hành
             </a>
 
@@ -54,7 +55,7 @@
                 Câu chuyện
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="/ThanhAM/pages/tac_dong.php" class="menu-link">
                 Tác động
             </a>
 
