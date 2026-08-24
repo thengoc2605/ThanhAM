@@ -21,44 +21,58 @@ function tabClass(string $key, string $active): string
 }
 
 $founders = [
-  ['name' => 'Trần Thế Ngọc',        'role' => 'Trưởng nhóm dự án',             'image' => '/ThanhAM/Images/1784204336401_8555190357952235068_8555190357952235068_9419a9d719ab0d6b4d73608cc2920a4e.jpg'],
-  ['name' => 'Nguyễn Văn B',          'role' => 'Đồng sáng lập - Kỹ thuật AI',  'image' => '/ThanhAM/Images/1784281300270_3685464955857165475_g4671258149823797589_42459c4e6dbaa972f7d02cd3f46d1e88.jpg'],
-  ['name' => 'Lê Thị C',              'role' => 'Đồng sáng lập - Sản phẩm',     'image' => '/ThanhAM/Images/1784281307669_3685464955857165475_g4671258149823797589_0e846df7e3a7f2ae9aacd3933a671f99.jpg'],
-  ['name' => 'Phạm Văn D',            'role' => 'Đồng sáng lập - Vận hành',     'image' => '/ThanhAM/Images/1787227705858_1853320507020962622_3605127511309582209_3c9cd69c27377da59bc50a89386b9878.jpg'],
-    ['name' => 'Hoàng Thị E',           'role' => 'Đồng sáng lập - Truyền thông',  'image' => '/ThanhAM/Images/1787227746874_1853320507020962622_3605127511309582209_609e5081fad0d5ab50b16a44a63ee17d.jpg'],
-    ['name' => 'Đỗ Văn F',              'role' => 'Đồng sáng lập - Tài chính',    'image' => '/ThanhAM/Images/1787227766009_1853320507020962622_3605127511309582209_570f60cf61a0f05faac2ddffe9e33ac9.jpg'],
+    ['name' => 'Lưu Gia Hân', 'role' => 'Đồng sáng lập & Đại diện Dự án', 'focus' => 'Chiến lược, Kinh doanh, Đối tác & Truyền thông', 'detail' => 'Đại diện dự án Thanh Âm; phụ trách định hướng chiến lược, kinh doanh, phát triển thị trường, quan hệ đối tác, đối ngoại và truyền thông thương hiệu.', 'image' => '/ThanhAM/Images/GIaHan.jpg'],
+    ['name' => 'Nguyễn Văn Trực', 'role' => 'Đồng sáng lập & Trưởng ban Công nghệ', 'focus' => 'Phát triển Cốt lõi & Tích hợp Hệ thống', 'detail' => 'Định hướng công nghệ, xây dựng kiến trúc hệ thống, phát triển thành phần cốt lõi, kiểm soát chất lượng, tiến độ và khả năng vận hành.', 'image' => '/ThanhAM/Images/VanTruc.jpg'],
+    ['name' => 'Đỗ Chí Duy', 'role' => 'Đồng sáng lập & Kỹ sư Phần mềm', 'focus' => 'Phát triển Phần mềm & Tính năng', 'detail' => 'Phát triển module và tính năng, tham gia xử lý logic và dữ liệu, kiểm thử, sửa lỗi, tối ưu hiệu năng và tích hợp hệ thống.', 'image' => '/ThanhAM/Images/ChiDuy.jpg'],
+    ['name' => 'Phạm Thế Ngọc', 'role' => 'Đồng sáng lập & Kỹ sư Phần mềm', 'focus' => 'Phát triển Phần mềm & Tính năng', 'detail' => 'Phát triển module và tính năng, tham gia xử lý logic và dữ liệu, kiểm thử, sửa lỗi, tối ưu hiệu năng và tích hợp hệ thống.', 'image' => '/ThanhAM/Images/TheNgoc.jpg'],
+    ['name' => 'Nguyễn Hoàng Anh', 'role' => 'Đồng sáng lập & Trưởng ban Sáng tạo / Người phát ngôn', 'focus' => 'Sáng tạo, UI/UX, Nhận diện & Phát ngôn', 'detail' => 'Phụ trách concept, hình ảnh, nhận diện thương hiệu, UI/UX, slide pitching và truyền tải câu chuyện, giá trị, sứ mệnh của Thanh Âm.', 'image' => '/ThanhAM/Images/HoangAnh.jpg'],
+    ['name' => 'Nguyễn Thanh Quốc Bảo', 'role' => 'Đồng sáng lập & Phụ trách Tài chính & Tài liệu', 'focus' => 'Tài chính & Quản lý hồ sơ', 'detail' => 'Quản lý ngân sách, thu - chi, chứng từ và số liệu; hỗ trợ xây dựng, hoàn thiện và quản lý hồ sơ, tài liệu, biểu mẫu của dự án.', 'image' => '/ThanhAM/Images/QuocBao.jpg'],
 ];
 
 $advisors = [
-  ['name' => 'ThS. Nguyễn Thị G', 'role' => 'Cố vấn Giáo dục đặc biệt',       'image' => '/ThanhAM/Images/gv1.jpg'],
-  ['name' => 'TS. Trần Văn H',    'role' => 'Cố vấn Công nghệ AI',             'image' => '/ThanhAM/Images/gv2.jpg'],
-  ['name' => 'ThS. Lê Văn I',     'role' => 'Cố vấn Chiến lược cộng đồng',     'image' => '/ThanhAM/Images/gv3.png'],
-  ['name' => 'CN. Phạm Thị K',    'role' => 'Cố vấn Pháp lý - Phi lợi nhuận', 'image' => '/ThanhAM/Images/gv4.png'],
+    ['name' => 'ThS. Lê Phương Vũ Phong', 'role' => 'Phần mềm & Phần cứng', 'detail' => 'Tư vấn định hướng công nghệ phần mềm, phần cứng và khả năng triển khai các giải pháp kỹ thuật.', 'image' => '/ThanhAM/Images/VuPhong.png'],
+    ['name' => 'ThS. Phạm Trần Ngọc Hương', 'role' => 'Tài chính', 'detail' => 'Tư vấn về tài chính, ngân sách, quản lý nguồn lực và định hướng phát triển bền vững về tài chính.', 'image' => '/ThanhAM/Images/NgocHuong.jpg'],
+    ['name' => 'ThS. Huỳnh Thị Nhật Hằng', 'role' => 'Phát triển Công nghệ & AI', 'detail' => 'Tư vấn chuyên môn về công nghệ, AI, lập trình và định hướng phát triển kỹ thuật của sản phẩm.', 'image' => '/ThanhAM/Images/NhatHang.png'],
+    ['name' => 'ThS. Phan Thị Bích Trâm', 'role' => 'Đối tác & Kết nối', 'detail' => 'Tư vấn về phát triển quan hệ đối tác, hoạt động đối ngoại và kết nối với các tổ chức, đơn vị liên quan.', 'image' => '/ThanhAM/Images/BichTram.jpg'],
 ];
 
 $awards = [
-    ['badge' => 'Giải Nhất', 'icon' => 'fa-trophy', 'title' => 'Cuộc thi Sáng kiến Vì cộng đồng 2026', 'desc' => 'Hạng mục Công nghệ hỗ trợ người yếu thế, cấp tỉnh Tiền Giang.'],
-    ['badge' => 'Giải Ba', 'icon' => 'fa-medal', 'title' => 'Cuộc thi Khởi nghiệp Đổi mới Sáng tạo', 'desc' => 'Bảng dự án sinh viên, khu vực Đồng bằng sông Cửu Long.'],
-    ['badge' => 'Giải Cộng đồng', 'icon' => 'fa-heart', 'title' => 'Bình chọn của cộng đồng', 'desc' => 'Dự án được yêu thích nhất do người dùng và mạnh thường quân bình chọn.'],
+    ['badge' => 'Giải Nhất', 'icon' => 'fa-trophy', 'title' => 'Cuộc thi Khởi nghiệp Sáng tạo, Trường Đại học Tiền Giang', 'desc' => 'Ghi nhận tiềm năng của ý tưởng và định hướng khởi nghiệp đổi mới sáng tạo.'],
+    ['badge' => 'Giải Dự án Cộng đồng', 'icon' => 'fa-heart', 'title' => 'Cuộc thi Khởi nghiệp Sáng tạo, Trường Đại học Tiền Giang', 'desc' => 'Ghi nhận giá trị xã hội và tính cộng đồng của Thanh Âm trong việc hỗ trợ người gặp khó khăn giao tiếp.'],
+    ['badge' => 'Giải Ba', 'icon' => 'fa-medal', 'title' => 'Cuộc thi Đổi mới Sáng tạo Công nghệ cấp Thành phố - INNOX 2026', 'desc' => 'Ghi nhận hướng tiếp cận kết hợp công nghệ, AI và giải quyết vấn đề xã hội.'],
+];
+
+$award_images = [
+    ['src' => '/ThanhAM/uploads/Images/giai-nhat-tien-giang.png', 'alt' => 'Hình ảnh Giải Nhất Cuộc thi Khởi nghiệp Sáng tạo, Trường Đại học Tiền Giang', 'title' => 'Giải Nhất - Đại học Tiền Giang'],
+    ['src' => '/ThanhAM/uploads/Images/giai-ba-innox-2026-chung-ket.png', 'alt' => 'Hình ảnh Giải Ba Cuộc thi Đổi mới Sáng tạo Công nghệ INNOX 2026', 'title' => 'Giải Ba - INNOX 2026'],
 ];
 
 $dev_stages = [
-    ['period' => 'Giai đoạn 1 · 06/2025 - 12/2025', 'title' => 'Hình thành ý tưởng & nghiên cứu bài toán', 'desc' => 'Khảo sát nhu cầu giao tiếp của học sinh khuyết tật tại Tiền Giang, xây dựng đề xuất giải pháp AI chuyển đổi giọng nói.'],
-    ['period' => 'Giai đoạn 2 · 01/2026 - 04/2026', 'title' => 'Xây dựng & thử nghiệm mô hình AI', 'desc' => 'Phát triển mô hình nhận diện giọng nói không chuẩn, thử nghiệm nội bộ và tinh chỉnh độ chính xác.'],
-    ['period' => 'Giai đoạn 3 · 05/2026 - nay', 'title' => 'Triển khai thí điểm tại cộng đồng', 'desc' => 'Đưa ứng dụng vào sử dụng thực tế tại Trường Khuyết tật Nhân Ái, thu thập phản hồi để cải tiến liên tục.'],
+    ['period' => 'Giai đoạn 1 · 06/2025 - 08/2025', 'title' => 'Hình thành và xây dựng sản phẩm', 'desc' => 'THANH ÂM bắt đầu hành trình từ những bước đầu tiên trong việc xây dựng, học hỏi và nghiên cứu công nghệ. Đội ngũ vừa tìm hiểu nhu cầu thực tế, vừa tự mày mò, thử nghiệm và từng bước phát triển ứng dụng. Đây là giai đoạn đặt nền móng cho sản phẩm, từ ý tưởng ban đầu đến những phiên bản đầu tiên của THANH ÂM.'],
+    ['period' => 'Giai đoạn 2 · 08/2025 - 10/2025', 'title' => 'Hoàn thiện bản thử nghiệm và kiểm chứng thực tế', 'desc' => 'Sau quá trình nghiên cứu và phát triển, THANH ÂM dần hoàn thiện phiên bản thử nghiệm đầu tiên. Sản phẩm được đưa đến sử dụng thử trong thực tế để thu thập phản hồi, quan sát trải nghiệm và xác định những điểm cần cải thiện. Đây là bước chuyển quan trọng từ việc phát triển trên lý thuyết sang kiểm chứng bằng nhu cầu và trải nghiệm thực tế.'],
+    ['period' => 'Giai đoạn 3 · 10/2025 - 12/2025', 'title' => 'Bước ra đấu trường cấp trường', 'desc' => 'Từ một sản phẩm đang trong quá trình hoàn thiện, THANH ÂM chính thức mang dự án đến đấu trường khởi nghiệp và đổi mới sáng tạo cấp trường. Đây là cơ hội để đội ngũ trình bày sản phẩm, câu chuyện, giá trị xã hội và định hướng phát triển trước hội đồng chuyên môn, đồng thời tiếp nhận những góc nhìn và góp ý có giá trị để tiếp tục hoàn thiện dự án. Giai đoạn này đánh dấu bước chuyển của THANH ÂM từ một ý tưởng công nghệ đang được xây dựng thành một dự án có khả năng được giới thiệu, đánh giá và ghi nhận.'],
+    ['period' => 'Giai đoạn 4 · 12/2025 - 02/2026', 'title' => 'Cải thiện và nâng cấp sản phẩm', 'desc' => 'Sau quá trình thi đấu và tiếp nhận phản hồi, đội ngũ THANH ÂM tiếp tục tập trung cải thiện, chỉnh sửa và nâng cấp sản phẩm. Các tính năng được rà soát, trải nghiệm người dùng được hoàn thiện và định hướng phát triển được điều chỉnh phù hợp hơn với nhu cầu thực tế. Đây cũng là giai đoạn đội ngũ củng cố nền tảng công nghệ và chuẩn bị cho bước phát triển tiếp theo của THANH ÂM.'],
+    ['period' => 'Giai đoạn 5 · 02/2026 - 05/2026', 'title' => 'Vươn ra đấu trường cấp thành phố', 'desc' => 'Với sản phẩm và định hướng được nâng cấp, THANH ÂM tiếp tục bước ra đấu trường đổi mới sáng tạo cấp thành phố, mở rộng phạm vi cạnh tranh và tiếp cận với nhiều chuyên gia, tổ chức và dự án khác. Đây là dấu mốc cho thấy THANH ÂM từng bước trưởng thành cả về sản phẩm, công nghệ, khả năng trình bày dự án và giá trị xã hội, đồng thời được ghi nhận tại Cuộc thi Đổi mới Sáng tạo Công nghệ cấp Thành phố - INNOX 2026.'],
+    ['period' => 'Giai đoạn 6 · 05/2026 - nay', 'title' => 'Hoàn thiện và phát triển bền vững', 'desc' => 'Sau những dấu mốc tại các cuộc thi, THANH ÂM không dừng lại ở thành tích mà tiếp tục chỉnh sửa, hoàn thiện và phát triển sản phẩm. Đội ngũ tập trung nâng cấp tính năng, cải thiện trải nghiệm người dùng, hoàn thiện định hướng sản phẩm và từng bước mở rộng khả năng ứng dụng trong thực tế. Từ một dự án được hình thành bằng sự học hỏi và mày mò, THANH ÂM đang từng bước phát triển thành một giải pháp công nghệ xã hội có khả năng mở rộng, hướng đến triển khai tại trường học, trung tâm, cộng đồng, doanh nghiệp và phát triển B2B/API trong tương lai. Định hướng dài hạn của dự án là tiếp tục mở rộng từ thị trường trong nước đến khu vực Đông Nam Á.'],
 ];
 
 $principles = [
-    ['title' => 'Lấy người dùng làm trung tâm', 'desc' => 'Mọi tính năng đều xuất phát từ nhu cầu thật của người yếu thế.'],
-    ['title' => 'Minh bạch & phi lợi nhuận', 'desc' => 'Công khai nguồn tài trợ, cách sử dụng và kết quả tác động.'],
-    ['title' => 'Đồng hành dài hạn', 'desc' => 'Không dừng ở tài trợ một lần, mà theo sát quá trình sử dụng.'],
+    ['title' => 'Nhân văn - Lấy con người làm trung tâm', 'desc' => 'Mọi sản phẩm bắt đầu từ một nhu cầu thật và một câu chuyện thật; công nghệ phục vụ con người, không làm mất đi giá trị và cảm xúc.'],
+    ['title' => 'Đồng cảm - Lắng nghe bằng trái tim', 'desc' => 'Không chỉ nhận diện âm thanh, Thanh Âm hướng đến thấu hiểu những khó khăn phía sau một hành động giao tiếp.'],
+    ['title' => 'Sáng tạo - Biến giới hạn thành cơ hội', 'desc' => 'Không ngừng tìm kiếm cách tiếp cận mới, ứng dụng AI để mở rộng khả năng giao tiếp của con người.'],
+    ['title' => 'Kết nối - Lan tỏa giá trị tốt đẹp', 'desc' => 'Xây dựng cầu nối giữa người dùng, gia đình, trường học, chuyên gia, doanh nghiệp và cộng đồng.'],
+    ['title' => 'Phát triển bền vững - Công nghệ vì con người', 'desc' => 'Phát triển công nghệ song hành với trách nhiệm xã hội, hướng tới giá trị lâu dài và khả năng tiếp cận rộng rãi.'],
 ];
 
 $duties = [
-    ['title' => 'Phát triển sản phẩm AI', 'desc' => 'Nghiên cứu, huấn luyện và cải tiến mô hình nhận diện giọng nói.'],
-    ['title' => 'Kết nối nguồn lực', 'desc' => 'Vận động thiết bị, tài chính từ cá nhân và doanh nghiệp.'],
-    ['title' => 'Triển khai & đào tạo', 'desc' => 'Lắp đặt thiết bị, hướng dẫn sử dụng tại các đơn vị thụ hưởng.'],
-    ['title' => 'Đo lường tác động', 'desc' => 'Theo dõi số liệu, thu thập câu chuyện thực tế để báo cáo minh bạch.'],
+    ['title' => 'Lấy con người làm trung tâm', 'desc' => 'Nghiên cứu nhu cầu và khó khăn giao tiếp thực tế; phát triển sản phẩm dựa trên trải nghiệm và nhu cầu của người thụ hưởng.'],
+    ['title' => 'Công nghệ phục vụ con người', 'desc' => 'Ứng dụng AI và công nghệ hỗ trợ giao tiếp, giúp người dùng chủ động thể hiện suy nghĩ, cảm xúc và nhu cầu.'],
+    ['title' => 'Đơn giản - dễ tiếp cận', 'desc' => 'Thiết kế giải pháp trực quan, giảm thao tác không cần thiết và hỗ trợ giao tiếp nhanh chóng trong tình huống thực tế.'],
+    ['title' => 'Cá nhân hóa', 'desc' => 'Phát triển tính năng thích ứng với cách giao tiếp, thói quen và nhu cầu riêng của từng người dùng.'],
+    ['title' => 'An toàn và có trách nhiệm', 'desc' => 'Chú trọng bảo vệ dữ liệu người dùng, kiểm soát việc ứng dụng AI và phát triển công nghệ an toàn, có trách nhiệm.'],
+    ['title' => 'Liên tục cải tiến', 'desc' => 'Tiếp nhận phản hồi để kiểm thử, đánh giá, sửa đổi và nâng cấp sản phẩm.'],
+    ['title' => 'Kết nối và hợp tác', 'desc' => 'Kết nối người dùng, gia đình, trường học, trung tâm, chuyên gia, doanh nghiệp và cộng đồng.'],
+    ['title' => 'Đo lường tác động xã hội', 'desc' => 'Đánh giá mức độ cải thiện khả năng giao tiếp, sự chủ động và khả năng kết nối của người thụ hưởng.'],
 ];
 
 require __DIR__ . '/../includes/header.php';
@@ -125,13 +139,22 @@ require __DIR__ . '/../includes/header.php';
                             <dd><a href="#" target="_blank" rel="noopener">facebook.com/thanham</a></dd>
                         </dl>
                         <h4>Sứ mệnh</h4>
-                        <p>Trao công cụ giao tiếp bằng AI cho trẻ em và người khuyết tật, để mọi tiếng nói đều được lắng
-                            nghe.</p>
+                        <p>Dùng công nghệ để trao thêm cơ hội giao tiếp, giúp mỗi người có thể thể hiện suy nghĩ, cảm xúc và nhu cầu của mình một cách chủ động, tự nhiên và phù hợp với bản thân.
+Thanh Âm đặc biệt hướng tới những người gặp hạn chế về khả năng giao tiếp, đồng thời xây dựng các giải pháp có thể được triển khai trong gia đình, trường học, trung tâm hỗ trợ, tổ chức xã hội và doanh nghiệp.
+Chúng tôi tin rằng công nghệ chỉ thực sự có ý nghĩa khi được đặt trong tay con người và phục vụ con người, góp phần tạo ra một xã hội bao trùm, nơi mọi người đều có cơ hội được giao tiếp, được thấu hiểu và được kết nối.
+</p>
                         <h4>Tầm nhìn</h4>
-                        <p>Trở thành nền tảng hỗ trợ giao tiếp AI phổ biến nhất cho người yếu thế tại Việt Nam vào năm
-                            2030.</p>
+                        <p>Thanh Âm hướng tới trở thành nền tảng công nghệ hỗ trợ giao tiếp toàn diện, ứng dụng trí tuệ nhân tạo để phá bỏ những rào cản đang ngăn cách con người với việc thể hiện tiếng nói, cảm xúc và bản sắc của chính mình.
+Thanh Âm hướng đến một tương lai nơi công nghệ không thay thế tiếng nói của con người, mà trở thành chiếc cầu nối đưa những tiếng nói từng bị bỏ lại phía sau đến gần hơn với cộng đồng, để mỗi người đều có cơ hội được bày tỏ và được lắng nghe.
+
+Thanh Âm tin rằng: “Một tương lai nơi không ai bị bỏ lại phía sau bởi rào cản giao tiếp, nơi công nghệ mở đường để mọi tiếng nói được cất lên và được lắng nghe.”
+</p>
                         <h4>Giá trị cốt lõi</h4>
-                        <p>Thấu cảm — Minh bạch — Bền vững — Cùng nhau hành động.</p>
+                        <ol class="value-list">
+                            <?php foreach ($principles as $principle): ?>
+                            <li><strong><?= htmlspecialchars($principle['title']); ?></strong></li>
+                            <?php endforeach; ?>
+                        </ol>
                         <h4>Chính sách chất lượng</h4>
                         <p>Mọi thiết bị và phần mềm trước khi bàn giao đều được kiểm thử với chính người dùng thực tế.
                         </p>
@@ -155,6 +178,9 @@ require __DIR__ . '/../includes/header.php';
                                 style="max-width:100%; border-radius:8px;"
                                 onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{innerHTML:'<i class=&quot;fa-solid fa-sitemap&quot;></i><br>Chưa có hình sơ đồ tổ chức.<br><small>Đặt ảnh tại assets/images/so-do-to-chuc.png</small>'}));">
                         </div>
+                        <a class="media-link" href="https://drive.google.com/drive/folders/1p4LIOm7ntJL_XZHjbi-U2W22_tHfFxco?usp=drive_link" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-folder-open"></i> Xem thư mục hình hệ thống tổ chức
+                        </a>
                     </div>
                 </div>
             </div>
@@ -183,6 +209,8 @@ require __DIR__ . '/../includes/header.php';
                                 </div>
                                 <h4><?= htmlspecialchars($f['name']); ?></h4>
                                 <span><?= htmlspecialchars($f['role']); ?></span>
+                                <small><?= htmlspecialchars($f['focus']); ?></small>
+                                <p><?= htmlspecialchars($f['detail']); ?></p>
                             </div>
                             <?php endforeach; ?>
                         </div>
@@ -201,6 +229,7 @@ require __DIR__ . '/../includes/header.php';
                 </div>
                 <div class="card-detail">
                     <div class="card-detail-inner">
+                        <p class="card-intro">Ban Cố vấn đồng hành cùng Thanh Âm trong việc cung cấp định hướng chuyên môn, phản biện, tư vấn và hỗ trợ kết nối trong quá trình phát triển dự án.</p>
                         <div class="people-grid">
                             <?php foreach ($advisors as $a): ?>
                             <div class="person-card">
@@ -210,6 +239,7 @@ require __DIR__ . '/../includes/header.php';
                                 </div>
                                 <h4><?= htmlspecialchars($a['name']); ?></h4>
                                 <span><?= htmlspecialchars($a['role']); ?></span>
+                                <p><?= htmlspecialchars($a['detail']); ?></p>
                             </div>
                             <?php endforeach; ?>
                         </div>
@@ -241,6 +271,18 @@ require __DIR__ . '/../includes/header.php';
                             </div>
                             <?php endforeach; ?>
                         </div>
+                        <h4 class="gallery-title">Hình ảnh giải thưởng</h4>
+                        <div class="award-gallery">
+                            <?php foreach ($award_images as $image): ?>
+                            <button type="button" class="award-gallery-item" data-lightbox-src="<?= htmlspecialchars($image['src']); ?>" data-lightbox-alt="<?= htmlspecialchars($image['alt']); ?>">
+                                <img src="<?= htmlspecialchars($image['src']); ?>" alt="<?= htmlspecialchars($image['alt']); ?>">
+                                <span><?= htmlspecialchars($image['title']); ?></span>
+                            </button>
+                            <?php endforeach; ?>
+                        </div>
+                        <a class="media-link" href="https://drive.google.com/drive/folders/18_2pdK2US4QYegbnItjVlaRa72XUK_Xy?usp=drive_link" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-photo-film"></i> Xem thư mục hình và clip giải thưởng
+                        </a>
                     </div>
                 </div>
             </div>
@@ -297,6 +339,13 @@ require __DIR__ . '/../includes/header.php';
         </div>
     </div>
 
+</div>
+
+<div class="lightbox" data-lightbox aria-hidden="true">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Đóng ảnh">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img src="" alt="" data-lightbox-image>
 </div>
 
 <?php
