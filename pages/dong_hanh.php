@@ -1,10 +1,24 @@
 <?php
 // Include Header đã có sẵn
 include_once '../includes/header.php'; 
+require_once '../connect.php';
+
+// Lấy thông tin chương trình đang diễn ra mới nhất
+$stmt = $pdo->query("SELECT * FROM chuong_trinh WHERE trang_thai = 'dang_dien_ra' ORDER BY id DESC LIMIT 1");
+$ct = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Nếu không tìm thấy chương trình nào, gán mảng rỗng để tránh lỗi
+if (!$ct) {
+    $ct = [];
+}
+
+// Tính toán tự động số lượng cần hỗ trợ thêm
+$chi_tieu = (int)($ct['chi_tieu_so_luong'] ?? 0);
+$da_ho_tro = (int)($ct['so_luong_hien_tai'] ?? 0);
+$can_ho_tro_them = max(0, $chi_tieu - $da_ho_tro);
 ?>
 
 <!-- Link đến file CSS riêng của trang Đồng hành -->
-<!-- Sửa lại đường dẫn href cho khớp với thư mục của bạn -->
 <link rel="stylesheet" href="../assets/css/donghanh.css">
 
 <main class="donghanh-container">
@@ -35,41 +49,50 @@ include_once '../includes/header.php';
             <div class="dh-box">
                 <div class="dh-box-title"> THÔNG TIN CHƯƠNG TRÌNH HỖ TRỢ</div>
                 <div class="info-list-item">
-                    <strong>Chương trình:</strong> <span>Trao Thanh Âm - Tặng Tương Lai</span>
+                    <strong>Chương trình:</strong>
+                    <span><?= htmlspecialchars($ct['tieu_de'] ?? 'Đang cập nhật') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Địa điểm tổ chức:</strong> <span>Trường Khuyết Tật Tỉnh Tiền Giang</span>
+                    <strong>Địa điểm tổ chức:</strong>
+                    <span><?= htmlspecialchars($ct['dia_diem'] ?? 'Đang cập nhật') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Thời gian:</strong> <span>Tháng 09/2026</span>
+                    <strong>Thời gian:</strong>
+                    <span><?= htmlspecialchars($ct['thoi_gian'] ?? 'Đang cập nhật') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Đơn vị tổ chức:</strong> <span>Dự án Thanh Âm</span>
+                    <strong>Đơn vị tổ chức:</strong>
+                    <span><?= htmlspecialchars($ct['don_vi_to_chuc'] ?? 'Dự án Thanh Âm') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Đơn vị đồng hành:</strong> <span>Thanh Âm - ĐH Tiền Giang - Trường KT</span>
+                    <strong>Đơn vị đồng hành:</strong>
+                    <span><?= htmlspecialchars($ct['don_vi_dong_hanh'] ?? 'Chưa có') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Đơn vị thụ hưởng:</strong> <span>Học sinh Trường KT Tiền Giang</span>
+                    <strong>Đơn vị thụ hưởng:</strong>
+                    <span><?= htmlspecialchars($ct['don_vi_thu_huong'] ?? 'Đang cập nhật') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Đơn vị bảo trợ:</strong> <span>Trường Đại học Tiền Giang</span>
+                    <strong>Đơn vị bảo trợ:</strong>
+                    <span><?= htmlspecialchars($ct['don_vi_bao_tro'] ?? 'Đang cập nhật') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Đối tượng hỗ trợ:</strong> <span>50 Trẻ em yếu thế/khiếm khuyết giọng nói</span>
+                    <strong>Đối tượng hỗ trợ:</strong>
+                    <span><?= htmlspecialchars($ct['doi_tuong_ho_tro'] ?? 'Đang cập nhật') ?></span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Số người đã có thiết bị:</strong> <span>15 trẻ</span>
+                    <strong>Số người đã có thiết bị:</strong> <span><?= (int)($ct['so_co_thiet_bi'] ?? 0) ?> trẻ</span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Số người chưa có thiết bị:</strong> <span>35 trẻ</span>
+                    <strong>Số người chưa có thiết bị:</strong> <span><?= (int)($ct['so_chua_thiet_bi'] ?? 0) ?>
+                        trẻ</span>
                 </div>
                 <div class="info-list-item">
-                    <strong>Số người đã được hỗ trợ:</strong> <span>20 trẻ</span>
+                    <strong>Số người đã được hỗ trợ:</strong> <span><?= $da_ho_tro ?> trẻ</span>
                 </div>
                 <div class="info-list-item" style="border:none;">
                     <strong style="color:#c8115f;">Số người cần hỗ trợ thêm:</strong> <span
-                        style="color:#c8115f; font-weight:bold;">30 trẻ</span>
+                        style="color:#c8115f; font-weight:bold;"><?= $can_ho_tro_them ?> trẻ</span>
                 </div>
             </div>
 
@@ -79,42 +102,46 @@ include_once '../includes/header.php';
                 <form id="form-tai-tro" onsubmit="submitFormTaiTro(event)">
                     <div class="dh-form-group">
                         <label>1. Họ và Tên / Tên Đơn vị *</label>
-                        <input type="text" required placeholder="Nhập họ tên hoặc tên tổ chức">
+                        <input type="text" name="ho_ten" required placeholder="Nhập họ tên hoặc tên tổ chức">
                     </div>
                     <div class="dh-form-group">
                         <label>2. Số điện thoại *</label>
-                        <input type="tel" required placeholder="Nhập số điện thoại liên hệ">
+                        <input type="tel" name="sdt" required placeholder="Nhập số điện thoại liên hệ">
                     </div>
                     <div class="dh-form-group">
                         <label>3. Email *</label>
-                        <input type="email" required placeholder="Nhập địa chỉ Email">
+                        <input type="email" name="email" required placeholder="Nhập địa chỉ Email">
                     </div>
                     <div class="dh-form-group">
                         <label>4. Hình thức hỗ trợ *</label>
-                        <select id="hinh-thuc-ho-tro" onchange="toggleHinhThucTaiTro(this.value)">
-                            <option value="tienmat">Tiền mặt (Chuyển khoản / Mã QR)</option>
-                            <option value="thietbi">Thiết bị (Máy tính bảng / Điện thoại Android)</option>
+                        <select id="hinh-thuc-ho-tro" name="hinh_thuc" onchange="toggleHinhThucTaiTro(this.value)">
+                            <option value="tien_mat">Tiền (Chuyển khoản / Mã QR)</option>
+                            <option value="thiet_bi">Thiết bị (Máy tính bảng / Điện thoại Android)</option>
                         </select>
                     </div>
                     <div class="dh-form-group">
                         <label>5. Lời nhắn / Nội dung hỗ trợ</label>
-                        <textarea rows="3" placeholder="Nhập ghi chú hoặc nội dung hỗ trợ..."></textarea>
+                        <textarea name="loi_nhan" rows="3"
+                            placeholder="Nhập ghi chú hoặc nội dung hỗ trợ..."></textarea>
                     </div>
 
-                    <!-- Khung QR hiển thị khi chọn Tiền mặt -->
+                    <!-- Khung QR hiển thị khi chọn Tiền -->
                     <div id="qr-bank-box" class="qr-container active">
-                        <strong>Thông tin chuyển khoản ủng hộ:</strong>
-                        <p style="font-size:0.88rem; margin: 4px 0;">Ngân hàng: <strong>MB Bank</strong></p>
-                        <p style="font-size:0.88rem; margin: 4px 0;">STK: <strong>0912991489</strong> - Chủ TK:
+                        <strong>Thông margin khoản ủng hộ:</strong>
+                        <p style="font-size:0.88rem; margin: 4px 0;">Ngân hàng: <strong>VietinBank</strong></p>
+                        <p style="font-size:0.88rem; margin: 4px 0;">STK: <strong>101881199507</strong> - Chủ TK:
                             <strong>DU AN THANH AM</strong>
                         </p>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://thatham.vfy.vn"
-                            alt="Mã QR Chuyển khoản">
-                        <p style="font-size:0.78rem; color:#64748b;">*Vui lòng quét mã QR hoặc chuyển khoản với nội
-                            dung: [Họ tên] - [SĐT] - Tai tro Thanh Am</p>
+
+                        <img src="https://img.vietqr.io/image/VietinBank-101881199507-compact.png?accountName=DU%20AN%20THANH%20AM"
+                            alt="Mã QR Chuyển khoản"
+                            style="max-width: 180px; height: auto; margin: 10px 0; border-radius: 8px;">
+
+                        <p style="font-size:0.78rem; color:#64748b;">*Vui lòng chuyển khoản với nội dung: <strong>TT[Số
+                                điện thoại]</strong> (Ví dụ: TT0912991489) để hệ thống tự động xác nhận.</p>
                     </div>
 
-                    <button type="submit" class="btn-submit-dh"> XÁC NHẬN TÀI TRỢ</button>
+                    <button type="submit" id="btn-submit-tt" class="btn-submit-dh"> XÁC NHẬN TÀI TRỢ</button>
                 </form>
             </div>
 
@@ -167,7 +194,8 @@ include_once '../includes/header.php';
                     <p style="font-size:0.8rem; color:#64748b;">Bảo trợ toàn diện & Đồng phát triển tác động xã hội</p>
                 </div>
             </div>
-            <input type="hidden" id="selected-package-val" value="Chưa chọn gói">
+            <!-- Đã sửa value mặc định thành rỗng để bắt lỗi dễ hơn -->
+            <input type="hidden" id="selected-package-val" name="goi_hop_tac" value="">
         </div>
 
         <!-- Khung 2 cột: Form liên hệ & Thông tin Thanh Âm -->
@@ -178,21 +206,21 @@ include_once '../includes/header.php';
                 <form id="form-dong-hanh" onsubmit="submitFormDongHanh(event)">
                     <div class="dh-form-group">
                         <label>Họ và tên người đại diện *</label>
-                        <input type="text" required placeholder="Nhập họ tên">
+                        <input type="text" name="ho_ten" required placeholder="Nhập họ tên">
                     </div>
                     <div class="dh-form-group">
                         <label>Tên Doanh nghiệp / Đơn vị *</label>
-                        <input type="text" required placeholder="Nhập tên doanh nghiệp hoặc tổ chức">
+                        <input type="text" name="ten_dn" required placeholder="Nhập tên doanh nghiệp hoặc tổ chức">
                     </div>
                     <div class="dh-form-group">
                         <label>Số điện thoại *</label>
-                        <input type="tel" required placeholder="Nhập số điện thoại">
+                        <input type="tel" name="sdt" required placeholder="Nhập số điện thoại">
                     </div>
                     <div class="dh-form-group">
                         <label>Email *</label>
-                        <input type="email" required placeholder="Nhập Email">
+                        <input type="email" name="email" required placeholder="Nhập Email">
                     </div>
-                    <button type="submit" class="btn-submit-dh"> XÁC NHẬN GỬI THÔNG TIN</button>
+                    <button type="submit" id="btn-submit-dh" class="btn-submit-dh"> XÁC NHẬN GỬI THÔNG TIN</button>
                 </form>
             </div>
 
@@ -229,7 +257,7 @@ include_once '../includes/header.php';
     </div>
 </div>
 
-<!-- JavaScript Điều Hướng Trang -->
+<!-- JavaScript Điều Hướng Trang & Xử Lý Gửi Dữ Liệu -->
 <script>
 // 1. Hàm chuyển Tab Tài trợ / Đồng hành
 function switchDHTab(tab) {
@@ -254,7 +282,7 @@ function switchDHTab(tab) {
 // 2. Hàm ẩn/hiện mã QR khi chọn hình thức tài trợ
 function toggleHinhThucTaiTro(val) {
     const qrBox = document.getElementById('qr-bank-box');
-    if (val === 'tienmat') {
+    if (val === 'tien_mat') {
         qrBox.classList.add('active');
     } else {
         qrBox.classList.remove('active');
@@ -271,20 +299,87 @@ function selectPackage(element, packageName) {
 // 4. Xử lý submit Form Tài trợ
 function submitFormTaiTro(e) {
     e.preventDefault();
-    document.getElementById('thankyou-message').innerHTML =
-        "Trân trọng cảm ơn tấm lòng hảo tâm của Quý Nhà tài trợ đã ủng hộ chương trình!<br><br>Hệ thống đã ghi nhận thông tin tài trợ. Giấy chứng nhận và thông báo xác nhận sẽ được gửi qua Email/Zalo của Quý vị trong ít ngày tới.";
-    document.getElementById('thankyou-modal').classList.add('active');
+    const btn = document.getElementById('btn-submit-tt');
+    const originalText = btn.innerText;
+    const hinhThuc = document.getElementById('hinh-thuc-ho-tro').value;
+
+    btn.disabled = true;
+    btn.innerText = "Đang xử lý...";
+
+    const formData = new FormData(document.getElementById('form-tai-tro'));
+
+    fetch('../modules/process-tai-tro.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            btn.disabled = false;
+            btn.innerText = originalText;
+
+            if (data.status === 'success') {
+                let msg = hinhThuc === 'thiet_bi' ?
+                    "Trân trọng cảm ơn tấm lòng hảo tâm tài trợ thiết bị của Quý vị!<br><br>Hệ thống đã ghi nhận thông tin và chúng tôi sẽ liên hệ với Quý vị trong thời gian sớm nhất." :
+                    "Hệ thống đã xác nhận giao dịch chuyển khoản thành công!<br><br>Trân trọng cảm ơn tấm lòng hảo tâm của Quý Nhà tài trợ.";
+
+                document.getElementById('thankyou-message').innerHTML = msg;
+                document.getElementById('thankyou-modal').classList.add('active');
+                document.getElementById('form-tai-tro').reset();
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(() => {
+            btn.disabled = false;
+            btn.innerText = originalText;
+            alert("Có lỗi kết nối hệ thống! Vui lòng thử lại sau.");
+        });
 }
 
 // 5. Xử lý submit Form Đồng hành
 function submitFormDongHanh(e) {
     e.preventDefault();
-    const pkg = document.getElementById('selected-package-val').value;
-    document.getElementById('thankyou-message').innerHTML =
-        "Trân trọng cảm ơn Quý Doanh nghiệp / Quý Nhà tài trợ đã đăng ký hợp tác " + (pkg !== 'Chưa chọn gói' ? "<b>[" +
-            pkg + "]</b>" : "") +
-        ".<br><br><strong>THANH ÂM sẽ sớm liên hệ với Quý Đối tác để trao đổi chi tiết.</strong>";
-    document.getElementById('thankyou-modal').classList.add('active');
+
+    const packageVal = document.getElementById('selected-package-val').value;
+    if (!packageVal || packageVal.trim() === "") {
+        alert("Vui lòng chọn một Gói Hợp Tác ở phía trên trước khi gửi thông tin!");
+        return;
+    }
+
+    const btn = document.getElementById('btn-submit-dh');
+    const originalText = btn.innerText;
+
+    btn.disabled = true;
+    btn.innerText = "Đang xử lý...";
+
+    const formData = new FormData(document.getElementById('form-dong-hanh'));
+    formData.append('goi_hop_tac', packageVal);
+
+    fetch('../modules/process-dong-hanh.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            btn.disabled = false;
+            btn.innerText = originalText;
+
+            if (data.status === 'success') {
+                document.getElementById('thankyou-message').innerHTML =
+                    `Trân trọng cảm ơn Quý Doanh nghiệp / Quý Nhà tài trợ đã đăng ký hợp tác <b>[${packageVal}]</b>.<br><br><strong>THANH ÂM sẽ sớm liên hệ trực tiếp với Quý Đối tác!</strong>`;
+                document.getElementById('thankyou-modal').classList.add('active');
+                document.getElementById('form-dong-hanh').reset();
+                document.getElementById('selected-package-val').value = "";
+                document.querySelectorAll('.package-card').forEach(el => el.classList.remove('selected'));
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(() => {
+            btn.disabled = false;
+            btn.innerText = originalText;
+            alert("Có lỗi kết nối hệ thống! Vui lòng thử lại sau.");
+        });
 }
 
 // 6. Đóng Modal
