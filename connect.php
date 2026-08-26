@@ -1,16 +1,13 @@
 <?php
-require_once __DIR__ . '/config.php';
+$host = 'localhost';
+$dbname = 'thanham_db'; 
+$username = 'root';
+$password = '';
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "thanham_db";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-if ($conn->connect_error) {
-    die("Kết nối CSDL thất bại: " . $conn->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die(json_encode(['status' => 'error', 'message' => 'Lỗi kết nối CSDL: ' . $e->getMessage()]));
 }
-
-$conn->set_charset("utf8mb4");
 ?>
