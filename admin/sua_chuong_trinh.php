@@ -35,7 +35,7 @@ $stmt = $pdo->query("SELECT * FROM chuong_trinh WHERE trang_thai = 'dang_dien_ra
 $ct = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$ct) {
-    die("<div class='container mt-5'><div class='alert alert-warning'>Không tìm thấy chương trình nào đang diễn ra để chỉnh sửa! <a href='dashboard.php'>Quay lại Dashboard</a></div></div>");
+    die("<div class='container mt-5'><div class='alert alert-warning'>Không tìm thấy chương trình nào đang diễn ra để chỉnh sửa! <a href='dong_hanh_admin.php'>Quay lại</a></div></div>");
 }
 ?>
 <!DOCTYPE html>
@@ -54,8 +54,9 @@ if (!$ct) {
     <!-- Navbar đơn giản -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-4">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="dashboard.php"><i class="fa-solid fa-arrow-left me-2"></i> Dashboard
-                Admin</a>
+            <a class="navbar-brand fw-bold" href="dong_hanh_admin.php"><i class="fa-solid fa-arrow-left me-2"></i>QUAY
+                LẠI</a>
+            </a>
             <span class="navbar-text text-white-50">Hệ thống quản trị Thanh Âm</span>
         </div>
     </nav>
