@@ -3,7 +3,7 @@
    Phong cách hiện đại, tinh tế, tối ưu trải nghiệm và phản hồi người dùng
    ===================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Sora:wght@400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Sora:wght@400;600;700;800&display=swap");
 
 :root {
   --tam-navy: #071e33;
@@ -21,7 +21,7 @@
   --tam-gold-light: #fef3c7;
   --tam-green: #10b981;
   --tam-green-light: #d1fae5;
-  
+
   --tam-bg: #f8fafc;
   --tam-bg-card: #ffffff;
   --tam-text: #0f172a;
@@ -30,14 +30,27 @@
   --tam-border: #e2e8f0;
   --tam-border-light: #f1f5f9;
 
-  --tam-grad-primary: linear-gradient(135deg, #034f8f 0%, #075da1 35%, #8c315e 70%, #d71920 100%);
-  --tam-grad-hero: linear-gradient(145deg, #041424 0%, #0b2f4f 45%, #19142b 100%);
+  --tam-grad-primary: linear-gradient(
+    135deg,
+    #034f8f 0%,
+    #075da1 35%,
+    #8c315e 70%,
+    #d71920 100%
+  );
+  --tam-grad-hero: linear-gradient(
+    145deg,
+    #041424 0%,
+    #0b2f4f 45%,
+    #19142b 100%
+  );
   --tam-grad-blue: linear-gradient(135deg, #034f8f 0%, #0284c7 100%);
   --tam-grad-magenta: linear-gradient(135deg, #8c315e 0%, #d71920 100%);
   --tam-grad-gold: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 
-  --font-main: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Sora', 'Be Vietnam Pro', sans-serif;
+  --font-main:
+    "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-heading: "Sora", "Be Vietnam Pro", sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -99,7 +112,12 @@ main.vta-page,
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, rgba(215, 25, 32, 0.15) 50%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(2, 132, 199, 0.25) 0%,
+    rgba(215, 25, 32, 0.15) 50%,
+    transparent 70%
+  );
   filter: blur(50px);
   pointer-events: none;
   z-index: 1;
@@ -112,7 +130,11 @@ main.vta-page,
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(140, 49, 94, 0.2) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(140, 49, 94, 0.2) 0%,
+    transparent 70%
+  );
   filter: blur(45px);
   pointer-events: none;
   z-index: 1;
@@ -229,7 +251,10 @@ main.vta-page,
   padding: 18px 16px;
   border-radius: var(--radius-md);
   text-align: center;
-  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .vta-stat-item:hover {
@@ -417,7 +442,9 @@ main.vta-page,
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -538,11 +565,26 @@ main.vta-page,
   transform: scale(1.12) rotate(-5deg);
 }
 
-.vta-value-card:nth-child(1) .vta-value-icon { background: #fee2e2; color: #dc2626; }
-.vta-value-card:nth-child(2) .vta-value-icon { background: #e0f2fe; color: #0284c7; }
-.vta-value-card:nth-child(3) .vta-value-icon { background: #fef3c7; color: #d97706; }
-.vta-value-card:nth-child(4) .vta-value-icon { background: #fae8f0; color: #8c315e; }
-.vta-value-card:nth-child(5) .vta-value-icon { background: #d1fae5; color: #059669; }
+.vta-value-card:nth-child(1) .vta-value-icon {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.vta-value-card:nth-child(2) .vta-value-icon {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+.vta-value-card:nth-child(3) .vta-value-icon {
+  background: #fef3c7;
+  color: #d97706;
+}
+.vta-value-card:nth-child(4) .vta-value-icon {
+  background: #fae8f0;
+  color: #8c315e;
+}
+.vta-value-card:nth-child(5) .vta-value-icon {
+  background: #d1fae5;
+  color: #059669;
+}
 
 .vta-value-card h4 {
   font-family: var(--font-heading) !important;
@@ -738,7 +780,10 @@ main.vta-page,
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .vta-member-card:hover {
@@ -855,7 +900,9 @@ main.vta-page,
   border: 1px solid var(--tam-border);
   box-shadow: var(--shadow-xs);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -934,7 +981,9 @@ main.vta-page,
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -1042,7 +1091,9 @@ main.vta-page,
   width: 100%;
   aspect-ratio: 16 / 10;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .vta-gallery-item:hover {
@@ -1054,7 +1105,9 @@ main.vta-page,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease, opacity 0.3s ease;
+  transition:
+    transform 0.4s ease,
+    opacity 0.3s ease;
   opacity: 0.95;
 }
 
@@ -1069,7 +1122,11 @@ main.vta-page,
   left: 0;
   right: 0;
   padding: 24px 18px 14px;
-  background: linear-gradient(180deg, transparent 0%, rgba(4, 18, 32, 0.88) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(4, 18, 32, 0.88) 100%
+  );
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -1135,7 +1192,12 @@ main.vta-page,
   top: 40px;
   bottom: 40px;
   width: 4px;
-  background: linear-gradient(180deg, var(--tam-blue) 0%, var(--tam-magenta) 60%, var(--tam-red) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--tam-blue) 0%,
+    var(--tam-magenta) 60%,
+    var(--tam-red) 100%
+  );
   border-radius: 2px;
 }
 
@@ -1159,7 +1221,9 @@ main.vta-page,
   border-radius: 50%;
   background: #ffffff;
   border: 4px solid var(--tam-blue);
-  box-shadow: 0 0 0 4px rgba(3, 79, 143, 0.15), var(--tam-shadow-sm);
+  box-shadow:
+    0 0 0 4px rgba(3, 79, 143, 0.15),
+    var(--tam-shadow-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1168,7 +1232,11 @@ main.vta-page,
   font-weight: 800;
   color: var(--tam-blue);
   flex-shrink: 0;
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .vta-timeline-step:hover .vta-timeline-node {
@@ -1186,7 +1254,8 @@ main.vta-page,
 }
 
 @keyframes pulseNode {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 4px rgba(215, 25, 32, 0.25);
   }
   50% {
@@ -1201,7 +1270,9 @@ main.vta-page,
   border: 1px solid var(--tam-border);
   box-shadow: var(--shadow-sm);
   flex: 1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .vta-timeline-step:hover .vta-timeline-content {
@@ -1347,8 +1418,12 @@ main.vta-page,
 }
 
 @keyframes lbFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lightbox img {
@@ -1364,7 +1439,9 @@ main.vta-page,
 }
 
 @keyframes lbImgZoom {
-  to { transform: scale(1); }
+  to {
+    transform: scale(1);
+  }
 }
 
 .lightbox-close {
