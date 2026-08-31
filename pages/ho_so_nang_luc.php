@@ -526,13 +526,13 @@ require_once __DIR__ . '/../includes/header.php';
 
             <div class="hsnl-grid-figures2">
                 <figure class="hsnl-figure" style="margin-top:0;">
-                    <img src="/ThanhAM/uploads/images/giai-nhat-dai-hoc-tien-giang.png"
+                    <img src="/ThanhAM/uploads/images/giai-nhat-tien-giang.png"
                         alt="Đội ngũ Thanh Âm nhận Giải Nhất tại Trường Đại học Tiền Giang" loading="lazy">
                     <figcaption>Hình 3 — Dự án đạt Giải Nhất, Cuộc thi Khởi nghiệp tại Trường Đại học Tiền Giang
                     </figcaption>
                 </figure>
                 <figure class="hsnl-figure" style="margin-top:0;">
-                    <img src="/ThanhAM/uploads/images/giai-ba-innox-2026.png"
+                    <img src="/ThanhAM/uploads/images/giai-ba-innox-2026-chung-ket.png"
                         alt="Đội ngũ Thanh Âm nhận Giải Ba INNOX 2026" loading="lazy">
                     <figcaption>Hình 4 — Dự án đạt Giải Ba, Cuộc thi Đổi mới Sáng tạo Công nghệ cấp Thành phố INNOX 2026
                     </figcaption>
