@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 26, 2026 lúc 01:17 PM
+-- Thời gian đã tạo: Th9 01, 2026 lúc 02:10 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -66,7 +66,7 @@ CREATE TABLE `chi_so_tac_dong` (
 
 INSERT INTO `chi_so_tac_dong` (`id`, `ma_chi_so`, `ten_chi_so`, `gia_tri`, `mo_ta_phu`) VALUES
 (1, 'reached', 'Người đã tiếp cận', 75, 'Học sinh & người dân'),
-(2, 'partners', 'Đơn vị đồng hành', 1, 'Trường KT Nhân Ái'),
+(2, 'partners', 'Đơn vị đồng hành', 1, ''),
 (3, 'devices_given', 'Thiết bị đã trao', 20, 'Điện thoại thông minh'),
 (4, 'sponsors', 'Nhà tài trợ', 1, 'Doanh nghiệp & Cá nhân');
 
@@ -115,6 +115,7 @@ CREATE TABLE `chuong_trinh` (
   `don_vi_dong_hanh` varchar(255) DEFAULT NULL,
   `don_vi_bao_tro` varchar(255) DEFAULT NULL,
   `doi_tuong_ho_tro` varchar(255) DEFAULT NULL,
+  `loai_ho_tro` varchar(100) DEFAULT 'thiết bị',
   `so_co_thiet_bi` int(11) DEFAULT 0,
   `so_chua_thiet_bi` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -123,9 +124,10 @@ CREATE TABLE `chuong_trinh` (
 -- Đang đổ dữ liệu cho bảng `chuong_trinh`
 --
 
-INSERT INTO `chuong_trinh` (`id`, `tieu_de`, `dia_diem`, `thoi_gian`, `don_vi_thu_huong`, `don_vi_tai_tro`, `chi_tieu_so_luong`, `so_luong_hien_tai`, `trang_thai`, `mo_ta`, `ngay_tao`, `don_vi_to_chuc`, `don_vi_dong_hanh`, `don_vi_bao_tro`, `doi_tuong_ho_tro`, `so_co_thiet_bi`, `so_chua_thiet_bi`) VALUES
-(1, 'Triển khai ứng dụng tại Trường KT Nhân Ái', 'Mỹ Tho, Tiền Giang', NULL, 'Trường Khuyết tật Nhân Ái', NULL, 50, 20, 'dang_dien_ra', 'Hỗ trợ thiết bị và cài đặt phần mềm giao tiếp AI cho học sinh.', '2026-08-21 09:13:27', 'Dự án Thanh Âm', NULL, NULL, NULL, 0, 0),
-(2, 'Vận động 20 Smartphone cho học sinh nghèo', 'Trường khuyết tật nhân ái', '', 'Học sinh yếu thế', NULL, 20, 5, 'dang_dien_ra', 'Kêu gọi quyên góp điện thoại cũ/mới còn dùng tốt.', '2026-08-21 09:13:27', 'Dự án Thanh Âm', '', '', '', 0, 0);
+INSERT INTO `chuong_trinh` (`id`, `tieu_de`, `dia_diem`, `thoi_gian`, `don_vi_thu_huong`, `don_vi_tai_tro`, `chi_tieu_so_luong`, `so_luong_hien_tai`, `trang_thai`, `mo_ta`, `ngay_tao`, `don_vi_to_chuc`, `don_vi_dong_hanh`, `don_vi_bao_tro`, `doi_tuong_ho_tro`, `loai_ho_tro`, `so_co_thiet_bi`, `so_chua_thiet_bi`) VALUES
+(1, 'Trao quà tặng tại Trường KT Nhân Ái', 'Mỹ Tho, Tiền Giang', '30/9/2026', 'Trường Khuyết tật Nhân Ái', NULL, 100, 60, 'da_hoan_thanh', '', '2026-08-21 09:13:27', 'Dự án Thanh Âm', 'Thanh Âm - ĐH Tiền Giang - Trường KT', 'ĐH Tiền Giang', 'Học sinh khó khăn', 'Sách vở', 20, 40),
+(2, 'hsdjkfdm', 'Trường Khuyết Tật Nhân Ái tỉnh Đồng Tháp', '28/8/2026', 'Học sinh Trường Khuyết Tật Nhân Ái', NULL, 35, 20, 'da_hoan_thanh', 'Kêu gọi quyên góp điện thoại cũ/mới còn dùng tốt.', '2026-08-21 09:13:27', 'Dự án Thanh Âm', 'Thanh Âm - ĐH Tiền Giang - Trường KT', 'ĐH Tiền Giang', 'Học sinh khó khăn', 'thiết bị', 15, 35),
+(3, 'Trao thanh âm - Tặng tương lai', 'Mỹ Tho, Tiền Giang', '30/9/2026', 'Học sinh yếu thế', NULL, 100, 80, 'dang_dien_ra', 'Cho các em vượt khó', '2026-09-01 02:26:37', 'Dự án Thanh Âm', 'Thanh Âm - ĐH TG - Trường KT', 'ĐH Tiền Giang', 'Học sinh khó khăn', 'Sách vở', 50, 40);
 
 -- --------------------------------------------------------
 
@@ -165,12 +167,8 @@ CREATE TABLE `dong_hanh_chien_luoc` (
 --
 
 INSERT INTO `dong_hanh_chien_luoc` (`id`, `ho_ten_dai_dien`, `ten_doanh_nghiep`, `sdt`, `email`, `goi_hop_tac`, `ngay_tao`) VALUES
-(1, 'pham the ngoc', 'bánh bao', '03541545', 'ngocpham@gmail.com', 'GÓI 01 – TIA SÁNG', '2026-08-25 03:22:49'),
-(2, 'gdfg', 'smnfknbs', '0365415', 'ngocne@gmail.com', 'Chưa chọn gói', '2026-08-25 11:07:23'),
-(3, 'dfbcfvb', 'sxgdvsx', '032152', 'sfgsf@gmail.com', 'GÓI 03 – ĐỐI TÁC CHIẾN LƯỢC', '2026-08-25 11:07:41'),
-(4, 'hihi', 'smnfknbs', '0365415', 'the@gmail.com', 'Chưa chọn gói', '2026-08-26 03:58:09'),
-(5, 'gdfg', 'smnfknbs', '086535755', 'theng@gmail.com', 'GÓI 02 – LAN TỎA', '2026-08-26 03:58:32'),
-(6, 'pham the ngoc', 'bánh mì', '0865357517', 'thengoc2605@gmail.com', 'GÓI 01 – TIA SÁNG', '2026-08-26 10:48:27');
+(7, 'Nguyễn Thanh Trà', 'CTTNHH 1 thành viên', '0986532476', '1tv.haha@gmail.com', 'GÓI 03 – ĐỐI TÁC CHIẾN LƯỢC', '2026-08-26 11:29:13'),
+(8, 'truc', 'truc', '035455478', 'truc@gmail.com', 'GÓI 02 – LAN TỎA', '2026-08-31 12:10:25');
 
 -- --------------------------------------------------------
 
@@ -281,13 +279,7 @@ CREATE TABLE `tai_tro` (
 --
 
 INSERT INTO `tai_tro` (`id`, `ho_ten`, `sdt`, `email`, `hinh_thuc`, `loi_nhan`, `ma_giao_dich`, `trang_thai`, `ngay_tao`) VALUES
-(1, 'pham the ngoc', '035415654', 'ngocne123@gmail.com', 'thiet_bi', '', NULL, 'hoan_thanh', '2026-08-25 03:20:29'),
-(2, 'hihi', '0121165152', 'thengoc@gmail.com', '', 'xin duoc ho tro', NULL, '', '2026-08-25 11:03:39'),
-(3, 'gdfg', '035415455', 'thengoc@gmail.com', '', '', NULL, '', '2026-08-26 03:48:17'),
-(4, 'gdfg', '0865357517', 'thengoc2605@gmail.com', '', '', 'TT0865357517', '', '2026-08-26 04:02:24'),
-(5, 'gdfg', '03541545', 'thengoc@gmail.com', '', '', NULL, '', '2026-08-26 04:04:04'),
-(10, 'pham the', '0865357517', 'thengoc2605@gmail.com', 'thiet_bi', 'Hỗ trợ nhiệt tình', 'TT0865357517_178774205318', '', '2026-08-26 11:00:53'),
-(11, 'pham the ngoc', '0865357517', 'thengoc2605@gmail.com', 'tien_mat', '', 'TT0865357517_178774207470', '', '2026-08-26 11:01:14');
+(12, 'Nguyễn Thị Trúc Mai', '0983547815', 'mai123@gmail.com', 'thiet_bi', 'Hỗ trợ', 'TT0983547815_178774368415', '', '2026-08-26 11:28:04');
 
 -- --------------------------------------------------------
 
@@ -506,7 +498,7 @@ ALTER TABLE `chung_nhan`
 -- AUTO_INCREMENT cho bảng `chuong_trinh`
 --
 ALTER TABLE `chuong_trinh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `doi_tac`
@@ -518,7 +510,7 @@ ALTER TABLE `doi_tac`
 -- AUTO_INCREMENT cho bảng `dong_hanh_chien_luoc`
 --
 ALTER TABLE `dong_hanh_chien_luoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `giao_dich_ngan_hang`
@@ -548,7 +540,7 @@ ALTER TABLE `tai_lieu`
 -- AUTO_INCREMENT cho bảng `tai_tro`
 --
 ALTER TABLE `tai_tro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `thanh_vien_nhom`
