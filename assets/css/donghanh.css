@@ -235,6 +235,120 @@
   margin-bottom: 20px;
 }
 
+/* =========================================
+   GỘP TỪ tacdong.css (trang Tác Động đã sáp nhập vào Đồng Hành)
+   Dùng cho: khối "Báo cáo tác động" đầu trang + Tab "Lịch sử triển khai"
+========================================= */
+
+/* Khung box dùng chung kiểu tác động (Báo cáo tác động) */
+.td-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+.td-box-title {
+  font-size: 1.25rem;
+  color: #0a2158;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Quote (Trích dẫn) */
+.td-quote {
+  background: #eef2ff;
+  border-left: 5px solid #144fb0;
+  padding: 20px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #1e293b;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* Lịch sử triển khai - Các khung chương trình */
+.history-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+.history-info p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #334155;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 8px;
+}
+.history-info strong {
+  color: #0a2158;
+  display: inline-block;
+  width: 140px;
+}
+.history-media {
+  background: #f8fafc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #94a3b8;
+  border: 2px dashed #cbd5e1;
+  min-height: 250px;
+}
+
+/* Báo cáo tác động - Lưới thống kê (flexbox tự canh giữa dù có bao nhiêu thẻ) */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.stat-card {
+  background: #fff;
+  border: 2px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 20px 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: 0.3s;
+  flex: 1 1 190px;
+  max-width: 220px;
+}
+.stat-card:hover {
+  border-color: #d9a441;
+  transform: translateY(-5px);
+}
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #c8115f;
+  margin-bottom: 5px;
+}
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+}
+.stat-detail {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
 /* Responsive */
 @media (max-width: 850px) {
   .dh-tabs-main,
@@ -243,5 +357,13 @@
   }
   .packages-grid {
     grid-template-columns: 1fr;
+  }
+  .history-card {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 576px) {
+  .stat-card {
+    flex: 1 1 140px;
   }
 }
