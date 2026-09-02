@@ -166,6 +166,18 @@ $dev_stages = [
     ],
 ];
 
+// Dữ liệu lộ trình được quản lý từ khu vực admin; giữ dữ liệu mẫu làm dự phòng
+// để trang vẫn hiển thị nếu CSDL chưa được cập nhật migration.
+try {
+    $stmt_dev_stages = $pdo->query("SELECT so_thu_tu AS num, thoi_gian AS period, tieu_de AS title, mo_ta AS `desc`, la_hien_tai AS is_current FROM lo_trinh_phat_trien ORDER BY so_thu_tu ASC, id ASC");
+    $db_dev_stages = $stmt_dev_stages->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($db_dev_stages)) {
+        $dev_stages = $db_dev_stages;
+    }
+} catch (PDOException $e) {
+    // Cho phép site hoạt động trước khi người quản trị import migration.
+}
+
 $principles = [
     [
         'icon' => 'fa-heart',

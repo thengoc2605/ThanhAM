@@ -43,6 +43,12 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                         <a class="nav-link text-white" href="dong_hanh_admin.php"><i
                                 class="fa-solid fa-handshake me-1"></i> Quyên Góp & Đồng Hành</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="lo_trinh_phat_trien.php"><i class="fa-solid fa-timeline me-1"></i> Lộ Trình</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="giai_phap_admin.php"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Giải Pháp</a>
+                    </li>
                     <!-- Bây tự thêm nha -->
                     <li class="nav-item">
                         <a class="nav-link text-white opacity-50" href="#"><i class="fa-solid fa-book-open me-1"></i>

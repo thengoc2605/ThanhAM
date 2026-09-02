@@ -141,6 +141,25 @@ $features_main = [
         'video'   => 'tinhnang8.mp4',
     ],
     [
+        'id'      => 'tinh-nang-9',
+        'icon'    => 'fa-triangle-exclamation',
+        'title'   => 'SOS – Hỗ trợ khẩn cấp',
+        'badge'   => 'Emergency SOS',
+        'summary' => 'Hỗ trợ người dùng liên hệ với người thân, bạn bè hoặc người giám hộ trong trường hợp khẩn cấp.',
+        'purpose' => 'Tạo thêm một lớp hỗ trợ an toàn cho người dùng khi gặp tình huống khẩn cấp và khó có thể tự giao tiếp hoặc gọi trợ giúp theo cách thông thường.',
+        'target'  => 'Người gặp khó khăn giao tiếp, trẻ em, người cao tuổi, người cần hỗ trợ đặc biệt và người giám hộ.',
+        'steps'   => [
+            'Chọn chức năng “SOS” trong ứng dụng.',
+            'Thêm số điện thoại của người thân, bạn bè hoặc người giám hộ vào danh bạ khẩn cấp.',
+            'Hệ thống lưu danh sách các liên hệ khẩn cấp.',
+            'Khi gặp nguy hiểm, bấm nút “SOS” trên màn hình.',
+            'Hệ thống gửi SMS đến các liên hệ đã lưu, kèm thông tin vị trí.',
+            'Hệ thống lần lượt thực hiện cuộc gọi đến các liên hệ trong danh sách.',
+            'Nếu không có ai bắt máy, có thể chuyển sang số khẩn cấp 113, 114 hoặc 115.',
+        ],
+        'video'   => 'tinhnang9.mp4',
+    ],
+    [
         'id'      => 'lich-su-hoi-thoai',
         'icon'    => 'fa-clock-rotate-left',
         'title'   => 'Lịch sử hội thoại',
@@ -154,7 +173,7 @@ $features_main = [
             'Nhấn phát lại nếu muốn nghe lại.',
             'Tìm kiếm nhanh theo thời gian hoặc chủ đề.',
         ],
-        'video'   => 'tinhnang9.mp4',
+        'video'   => 'tinhnang10.mp4',
     ],
     [
         'id'      => 'goi-vip',
@@ -170,11 +189,34 @@ $features_main = [
             'Kích hoạt gói để mở khóa tính năng cao cấp.',
             'Sử dụng trải nghiệm ưu tiên theo nhu cầu.',
         ],
-        'video'   => 'tinhnang10.mp4',
+        'video'   => 'tinhnang11.mp4',
     ],
 ];
 
 $all_features = $features_main;
+
+try {
+    $stmt_db_features = $pdo->query("SELECT slug AS id, bieu_tuong AS icon, tieu_de AS title, nhan AS badge, tom_tat AS summary, noi_dung AS noi_dung, video, thu_tu FROM giai_phap_tinh_nang WHERE trang_thai = 1 ORDER BY thu_tu ASC, id ASC");
+    $db_features = $stmt_db_features->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($db_features)) {
+        $all_features = array_map(static function (array $feature): array {
+            return [
+                'id' => $feature['id'],
+                'icon' => $feature['icon'] ?: 'fa-lightbulb',
+                'title' => $feature['title'],
+                'badge' => $feature['badge'] ?: 'Thanh Âm',
+                'summary' => $feature['summary'] ?: '',
+                'purpose' => '',
+                'target' => '',
+                'steps' => [],
+                'video' => $feature['video'] ?: '',
+                'noi_dung' => $feature['noi_dung'],
+            ];
+        }, $db_features);
+    }
+} catch (PDOException $e) {
+    // Giữ dữ liệu cũ cho đến khi migration được import.
+}
 
 // ---------------------------------------------------------------
 // DỮ LIỆU ĐỐI TƯỢNG SỬ DỤNG
@@ -338,16 +380,22 @@ if (file_exists($cssPathGP)) {
                         <div class="gp-detail-text-col">
                             <div class="gp-detail-info-block">
                                 <h4><i class="fa-solid fa-circle-info"></i> Công dụng &amp; Giá trị mang lại</h4>
+                                <?php if (array_key_exists('noi_dung', $f)): ?>
+                                <div><?= $f['noi_dung']; ?></div>
+                                <?php else: ?>
                                 <p><?= htmlspecialchars($f['purpose']); ?></p>
+                                <?php endif; ?>
                             </div>
 
+                            <?php if (!array_key_exists('noi_dung', $f)): ?>
                             <div class="gp-detail-info-block">
                                 <h4><i class="fa-solid fa-users-viewfinder"></i> Đối tượng phù hợp</h4>
                                 <p><?= htmlspecialchars($f['target']); ?></p>
                             </div>
+                            <?php endif; ?>
 
                             <div class="gp-detail-info-block">
-                                <h4><i class="fa-solid fa-list-check"></i> Quy trình 4 bước sử dụng</h4>
+                                <h4><i class="fa-solid fa-list-check"></i> Các bước sử dụng</h4>
                                 <div class="gp-steps-list">
                                     <?php foreach ($f['steps'] as $sIndex => $step): ?>
                                     <div class="gp-step-item">
@@ -364,10 +412,13 @@ if (file_exists($cssPathGP)) {
                             <div class="gp-detail-info-block">
                                 <h4><i class="fa-solid fa-clapperboard"></i> Video minh họa &amp; Trải nghiệm UI</h4>
                                 <div class="gp-video-box">
-                                    <video controls preload="none" poster="/ThanhAM/assets/images/video-poster-<?= htmlspecialchars($f['id']); ?>.jpg">
-                                        <source src="/ThanhAM/assets/videos/<?= htmlspecialchars($f['video']); ?>" type="video/mp4">
-                                        <source src="/ThanhAM/uploads/Videos/<?= htmlspecialchars($f['video']); ?>" type="video/mp4">
-                                    </video>
+                                    <?php
+                                    $video_type = strtolower(pathinfo($f['video'] ?? '', PATHINFO_EXTENSION)) === 'mov' ? 'video/quicktime' : 'video/mp4';
+                                    ?>
+                                    <?php if (!empty($f['video'])): ?><video controls preload="none" poster="/ThanhAM/assets/images/video-poster-<?= htmlspecialchars($f['id']); ?>.jpg">
+                                        <source src="/ThanhAM/assets/videos/<?= htmlspecialchars($f['video']); ?>" type="<?= $video_type; ?>">
+                                        <source src="/ThanhAM/uploads/Videos/<?= htmlspecialchars($f['video']); ?>" type="<?= $video_type; ?>">
+                                    </video><?php endif; ?>
                                     <div class="gp-video-fallback">
                                         <i class="fa-solid fa-circle-play"></i>
                                         <span>Video minh họa tính năng: <b><?= htmlspecialchars($f['title']); ?></b><br><small>Hệ thống AI xử lý theo thời gian thực</small></span>
