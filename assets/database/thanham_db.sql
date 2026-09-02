@@ -10,6 +10,71 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+SET NAMES utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `giai_phap_tinh_nang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slug` varchar(150) NOT NULL,
+  `tieu_de` varchar(255) NOT NULL,
+  `bieu_tuong` varchar(100) DEFAULT 'fa-lightbulb',
+  `nhan` varchar(100) DEFAULT NULL,
+  `tom_tat` text DEFAULT NULL,
+  `noi_dung` mediumtext NOT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  `trang_thai` tinyint(1) NOT NULL DEFAULT 1,
+  `thu_tu` int(11) NOT NULL DEFAULT 0,
+  `ngay_tao` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ngay_cap_nhat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_giai_phap_slug` (`slug`),
+  KEY `idx_giai_phap_thu_tu` (`thu_tu`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO `giai_phap_tinh_nang` (`slug`, `tieu_de`, `bieu_tuong`, `nhan`, `tom_tat`, `noi_dung`, `video`, `trang_thai`, `thu_tu`) VALUES
+('nhap-van-ban', 'Nhập văn bản & phát giọng', 'fa-keyboard', 'Text to Speech', 'Nhập câu muốn nói và để hệ thống phát giọng tự nhiên theo ý muốn.', '<p>Người dùng nhập nội dung cần truyền đạt rồi phát bằng giọng đọc rõ ràng.</p><ol><li>Mở giao diện chính.</li><li>Nhập hoặc dán câu cần nói.</li><li>Nhấn nút phát.</li><li>Lưu câu thường dùng để phát lại nhanh.</li></ol>', 'tinhnang1.mp4', 1, 1),
+('goi-y-nhanh', 'Gợi ý nhanh', 'fa-bolt', 'Quick Suggest', 'Hiển thị các câu gợi ý nhanh phù hợp với nhu cầu giao tiếp tức thời.', '<p>Hệ thống đề xuất câu nói phổ biến theo ngữ cảnh, giúp người dùng phản hồi nhanh hơn.</p><ol><li>Mở mục gợi ý nhanh.</li><li>Xem câu theo tình huống.</li><li>Chọn câu muốn phát.</li><li>Chỉnh sửa nếu cần.</li></ol>', 'tinhnang2.mp4', 1, 2),
+('ghi-am', 'Ghi âm', 'fa-microphone', 'Voice Recording', 'Ghi lại giọng nói, lưu trữ và phát lại khi cần.', '<p>Ghi âm giúp người dùng lưu lại đoạn nói, nghe lại và luyện tập giao tiếp.</p><ol><li>Nhấn nút ghi âm.</li><li>Nói nội dung muốn lưu.</li><li>Dừng ghi âm.</li><li>Nghe lại và lưu trữ.</li></ol>', 'tinhnang3.mp4', 1, 3),
+('ca-nhan-hoa', 'Cá nhân hóa', 'fa-sliders', 'Personalize', 'Điều chỉnh giọng nói, tốc độ và cách hiển thị theo từng người dùng.', '<p>Người dùng thiết lập giọng nói, tốc độ phát âm, từ vựng và giao diện phù hợp.</p><ol><li>Mở phần cài đặt.</li><li>Chọn giọng đọc và tốc độ.</li><li>Chỉnh sửa từ vựng.</li><li>Lưu cấu hình.</li></ol>', 'tinhnang4.mp4', 1, 4),
+('sua-chinh-ta', 'Sửa lỗi chính tả', 'fa-spell-check', 'Grammar Fix', 'Tự động phát hiện lỗi ngữ pháp và chính tả trước khi phát âm.', '<p>Hỗ trợ viết đúng, rõ ràng và hạn chế hiểu nhầm khi câu được đọc to.</p><ol><li>Nhập câu cần soạn thảo.</li><li>Xem gợi ý sửa lỗi.</li><li>Chọn từ đúng.</li><li>Phát câu đã chỉnh sửa.</li></ol>', 'tinhnang5.mp4', 1, 5),
+('goi-y-ai', 'Đưa ra gợi ý từ AI', 'fa-brain', 'AI Suggestion', 'AI đề xuất câu trả lời phù hợp theo tình huống và ngữ cảnh.', '<p>AI phân tích ngữ cảnh và đề xuất câu trả lời ngắn gọn, tự nhiên, dễ phát âm.</p><ol><li>Bắt đầu hội thoại.</li><li>Xem đề xuất từ AI.</li><li>Chọn câu phù hợp.</li><li>Phát câu ngay.</li></ol>', 'tinhnang6.mp4', 1, 6),
+('ghi-nho-cau', 'Ghi nhớ câu nói hay dùng', 'fa-bookmark', 'Favorite Phrase', 'Lưu lại những câu hay dùng để phát ngay khi cần.', '<p>Các câu quen thuộc được lưu lại để người dùng phát nhanh mà không phải gõ lại.</p><ol><li>Chọn câu muốn lưu.</li><li>Nhấn đánh dấu yêu thích.</li><li>Mở thư viện câu nói.</li><li>Phát nhanh khi cần.</li></ol>', 'tinhnang7.mp4', 1, 7),
+('chu-de-va-luu', 'Tạo chủ đề & lưu câu thường ngày', 'fa-folder-plus', 'Topic Library', 'Tạo danh mục chủ đề riêng và lưu câu nói theo từng nhóm.', '<p>Sắp xếp câu nói theo gia đình, trường học, bệnh viện hoặc mua sắm để dễ tìm và sử dụng.</p><ol><li>Tạo chủ đề mới.</li><li>Thêm câu nói vào chủ đề.</li><li>Phân loại theo hoàn cảnh.</li><li>Mở chủ đề để phát nhanh.</li></ol>', 'tinhnang8.mp4', 1, 8),
+('tinh-nang-9', 'SOS – Hỗ trợ khẩn cấp', 'fa-triangle-exclamation', 'Emergency SOS', 'Hỗ trợ liên hệ người thân, bạn bè hoặc người giám hộ trong trường hợp khẩn cấp.', '<p>Tạo thêm một lớp hỗ trợ an toàn cho người khó có thể tự giao tiếp hoặc gọi trợ giúp theo cách thông thường.</p><ol><li>Chọn chức năng SOS.</li><li>Thêm số điện thoại vào danh bạ khẩn cấp.</li><li>Hệ thống lưu danh sách liên hệ.</li><li>Bấm nút SOS khi gặp nguy hiểm.</li><li>Gửi SMS kèm thông tin vị trí.</li><li>Lần lượt gọi các liên hệ đã lưu.</li><li>Nếu không ai bắt máy, có thể liên hệ 113, 114 hoặc 115.</li></ol>', 'tinhnang9.mp4', 1, 9),
+('lich-su-hoi-thoai', 'Lịch sử hội thoại', 'fa-clock-rotate-left', 'Conversation History', 'Xem lại các cuộc trò chuyện và câu nói đã dùng trước đó.', '<p>Người dùng có thể tìm lại câu nói, theo dõi quá trình trao đổi và phát lại nội dung quan trọng.</p><ol><li>Mở phần lịch sử hội thoại.</li><li>Chọn cuộc trò chuyện.</li><li>Phát lại nếu cần.</li><li>Tìm kiếm theo thời gian hoặc chủ đề.</li></ol>', 'tinhnang10.mp4', 1, 10),
+('goi-vip', 'Gói VIP', 'fa-crown', 'Premium Access', 'Mở khóa trải nghiệm cao cấp với quyền truy cập mở rộng.', '<p>Gói VIP cung cấp thêm dung lượng lưu trữ, quyền truy cập nâng cao và trải nghiệm tùy chỉnh sâu hơn.</p><ol><li>Chọn gói VIP.</li><li>Xem quyền lợi.</li><li>Kích hoạt gói.</li><li>Sử dụng các tính năng cao cấp.</li></ol>', 'tinhnang11.mp4', 1, 11);
+
+-- Cấu trúc bảng cho bảng `lo_trinh_phat_trien`
+CREATE TABLE IF NOT EXISTS `lo_trinh_phat_trien` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `so_thu_tu` int(11) NOT NULL DEFAULT 1,
+  `thoi_gian` varchar(100) NOT NULL,
+  `tieu_de` varchar(255) NOT NULL,
+  `mo_ta` text NOT NULL,
+  `la_hien_tai` tinyint(1) NOT NULL DEFAULT 0,
+  `ngay_tao` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ngay_cap_nhat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_lo_trinh_thu_tu` (`so_thu_tu`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `lo_trinh_phat_trien` (`so_thu_tu`, `thoi_gian`, `tieu_de`, `mo_ta`, `la_hien_tai`)
+SELECT 1, 'Giai đoạn 1 · 06/2025 - 08/2025', 'Hình thành và xây dựng sản phẩm', 'THANH ÂM bắt đầu hành trình từ những bước đầu tiên trong việc xây dựng, học hỏi và nghiên cứu công nghệ.', 0
+WHERE NOT EXISTS (SELECT 1 FROM `lo_trinh_phat_trien`);
+INSERT INTO `lo_trinh_phat_trien` (`so_thu_tu`, `thoi_gian`, `tieu_de`, `mo_ta`, `la_hien_tai`)
+SELECT 2, 'Giai đoạn 2 · 08/2025 - 10/2025', 'Hoàn thiện bản thử nghiệm và kiểm chứng thực tế', 'Hoàn thiện phiên bản thử nghiệm đầu tiên, đưa vào sử dụng thực tế và thu thập phản hồi.', 0
+WHERE NOT EXISTS (SELECT 1 FROM `lo_trinh_phat_trien` WHERE `so_thu_tu` = 2);
+INSERT INTO `lo_trinh_phat_trien` (`so_thu_tu`, `thoi_gian`, `tieu_de`, `mo_ta`, `la_hien_tai`)
+SELECT 3, 'Giai đoạn 3 · 10/2025 - 12/2025', 'Bước ra đấu trường cấp trường', 'Trình bày sản phẩm, câu chuyện và giá trị xã hội trước hội đồng chuyên môn.', 0
+WHERE NOT EXISTS (SELECT 1 FROM `lo_trinh_phat_trien` WHERE `so_thu_tu` = 3);
+INSERT INTO `lo_trinh_phat_trien` (`so_thu_tu`, `thoi_gian`, `tieu_de`, `mo_ta`, `la_hien_tai`)
+SELECT 4, 'Giai đoạn 4 · 12/2025 - 02/2026', 'Cải thiện và nâng cấp sản phẩm', 'Rà soát tính năng, hoàn thiện trải nghiệm người dùng và củng cố nền tảng công nghệ.', 0
+WHERE NOT EXISTS (SELECT 1 FROM `lo_trinh_phat_trien` WHERE `so_thu_tu` = 4);
+INSERT INTO `lo_trinh_phat_trien` (`so_thu_tu`, `thoi_gian`, `tieu_de`, `mo_ta`, `la_hien_tai`)
+SELECT 5, 'Giai đoạn 5 · 02/2026 - 05/2026', 'Vươn ra đấu trường cấp thành phố', 'Mở rộng phạm vi cạnh tranh, tiếp cận chuyên gia và được ghi nhận tại INNOX 2026.', 0
+WHERE NOT EXISTS (SELECT 1 FROM `lo_trinh_phat_trien` WHERE `so_thu_tu` = 5);
+INSERT INTO `lo_trinh_phat_trien` (`so_thu_tu`, `thoi_gian`, `tieu_de`, `mo_ta`, `la_hien_tai`)
+SELECT 6, 'Giai đoạn 6 · 05/2026 - Hiện tại & Tương lai', 'Hoàn thiện và phát triển bền vững', 'Tiếp tục nâng cấp sản phẩm, mở rộng khả năng ứng dụng thực tế và hướng đến thị trường Đông Nam Á.', 1
+WHERE NOT EXISTS (SELECT 1 FROM `lo_trinh_phat_trien` WHERE `so_thu_tu` = 6);
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
